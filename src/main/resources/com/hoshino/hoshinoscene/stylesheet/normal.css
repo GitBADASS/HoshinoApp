@@ -1,0 +1,27 @@
+/*标题栏按钮*/
+.setWin {
+    -fx-background-color: none;
+    -fx-padding: 5px 15px;
+    -fx-border-style: none;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.setWin:hover {
+    -fx-background-color: #dadada;
+}
+
+.setWin:pressed {
+    -fx-background-color: none;
+}
+
+/*一般按钮*/
+
+.normalBtn {
+    -fx-background-color: #dfc2ff;
+    -fx-text-fill: #5a00b7;
+    -fx-padding: 5px 15px;
+    -fx-border-style: none;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
