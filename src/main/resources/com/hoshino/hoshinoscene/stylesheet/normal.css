@@ -1,5 +1,5 @@
 /*标题栏按钮*/
-.setWin {
+.setWin, .close {
     -fx-background-color: none;
     -fx-padding: 5px 15px;
     -fx-border-style: none;
@@ -11,8 +11,16 @@
     -fx-background-color: #dadada;
 }
 
+.close:hover {
+    -fx-background-color: #ff4f4f;
+}
+
 .setWin:pressed {
     -fx-background-color: none;
+}
+
+.close:pressed {
+    -fx-background-color: #ff8080;
 }
 
 /*一般按钮*/
