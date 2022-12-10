@@ -28,7 +28,7 @@ Only a private group. We some students set up it to post some interesting things
 
 # 🍜<span id="chinese">中文介绍-<font color="#4600C7">星夜</font>应用程序</span>
 
->ℹ提示：上方英文版的介绍更为详尽，某些方面你可能更需要阅读英文版
+>ℹ提示：上方的英文版介绍更为详尽，某些方面你可能更需要阅读英文版
 
 **🥀如果我们始终缺少开发人员或者始终忙于在校的学习，这个项目或将被弃置🏜。**
 
