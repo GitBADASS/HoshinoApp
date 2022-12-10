@@ -12,7 +12,7 @@
    <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="678.0">
       <children>
           <Button onAction="#onHelloButtonClick" prefHeight="26.0" prefWidth="119.0" styleClass="normalBtn" text="HOSHINO" />
-         <Button mnemonicParsing="false" styleClass="setWin">
+         <Button mnemonicParsing="false" styleClass="setWin" fx:id="min">
             <graphic>
                <ImageView fitHeight="10.0" fitWidth="10.0">
                   <Image url="@icons/min.png"/>

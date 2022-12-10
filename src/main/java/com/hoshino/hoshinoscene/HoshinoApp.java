@@ -30,12 +30,9 @@ public class HoshinoApp extends Application {
         //stage.setIconified(true);//最小化
         //stage.setResizable(false);//大小固定
 
-        //创建内容
-        //用于固定窗口的按钮
-        Button pin = new Button("HELLO");
-        pin.setOnAction((e)->{
-            stage.setIconified(true);
-        });
+        //获取Controller类
+        Controller controller = fxmlLoader.getController();
+        controller.setMin(stage);//设置最小化
 
         //显示场景
         stage.show();
