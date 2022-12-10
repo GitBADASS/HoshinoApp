@@ -8,25 +8,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="381.0" prefWidth="678.0" style="-fx-padding: 0;" stylesheets="@stylesheet/normal.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.hoshino.hoshinoscene.HelloController">
+<VBox prefHeight="381.0" prefWidth="678.0" style="-fx-padding: 0;" stylesheets="@stylesheet/normal.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.hoshino.hoshinoscene.Controller">
    <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="678.0">
       <children>
           <Button onAction="#onHelloButtonClick" prefHeight="26.0" prefWidth="119.0" styleClass="normalBtn" text="HOSHINO" />
          <Button mnemonicParsing="false" styleClass="setWin">
             <graphic>
                <ImageView fitHeight="10.0" fitWidth="10.0">
-                  <image>
-                     <Image url="@icons/min.png" />
-                  </image>
+                  <Image url="@icons/min.png"/>
                </ImageView>
             </graphic>
          </Button>
          <Button mnemonicParsing="false" onAction="#exit" styleClass="setWin">
             <graphic>
                <ImageView fitHeight="10.0" fitWidth="10.0">
-                  <image>
-                     <Image url="@icons/close.png" />
-                  </image>
+                  <Image url="@icons/close.png"/>
                </ImageView>
             </graphic>
          </Button>

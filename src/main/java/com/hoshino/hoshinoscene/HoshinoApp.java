@@ -3,20 +3,18 @@ package com.hoshino.hoshinoscene;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 //主类
-public class HelloApplication extends Application {
+public class HoshinoApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //加载fxml文件
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HoshinoApp.class.getResource("hello-view.fxml"));
 
         //创建新的场景
         Scene scene = new Scene(fxmlLoader.load());
