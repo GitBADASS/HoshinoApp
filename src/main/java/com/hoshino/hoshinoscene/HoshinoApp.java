@@ -2,12 +2,16 @@ package com.hoshino.hoshinoscene;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 //主类
 public class HoshinoApp extends Application {
@@ -16,11 +20,12 @@ public class HoshinoApp extends Application {
         //加载fxml文件
         FXMLLoader fxmlLoader = new FXMLLoader(HoshinoApp.class.getResource("hello-view.fxml"));
 
-        //创建新的场景
+        //创建场景
         Scene scene = new Scene(fxmlLoader.load());
 
-        //设置标题
+        //设置标题&图标
         stage.setTitle("Hello!");
+        stage.getIcons().add(new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/little.png"))));
 
         //设置场景
         stage.setScene(scene);
@@ -32,7 +37,7 @@ public class HoshinoApp extends Application {
 
         //获取Controller类
         Controller controller = fxmlLoader.getController();
-        controller.setMin(stage);//设置最小化
+        controller.init(stage);//初始化方法
 
         //显示场景
         stage.show();

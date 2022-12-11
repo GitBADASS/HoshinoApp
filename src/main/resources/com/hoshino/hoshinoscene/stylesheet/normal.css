@@ -15,6 +15,10 @@
     -fx-background-color: #ff4f4f;
 }
 
+#closeImg:hover{
+    -fx-background-image: url("../icons/closeHover.png");
+}
+
 .setWin:pressed {
     -fx-background-color: none;
 }
