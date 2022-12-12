@@ -4,9 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,12 +18,13 @@ public class HoshinoApp extends Application {
     public void start(Stage stage) throws IOException {
         //加载fxml文件
         FXMLLoader fxmlLoader = new FXMLLoader(HoshinoApp.class.getResource("hello-view.fxml"));
+        Parent root = fxmlLoader.load();
 
         //创建场景
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(root);
 
         //设置标题&图标
-        stage.setTitle("Hello!");
+        stage.setTitle("Hoshino");
         stage.getIcons().add(new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/little.png"))));
 
         //设置场景
@@ -37,11 +37,16 @@ public class HoshinoApp extends Application {
 
         //获取Controller类
         Controller controller = fxmlLoader.getController();
-        controller.init(stage);//初始化方法
+        controller.init(stage, (VBox) root);//初始化方法
 
         //显示场景
         stage.show();
 
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Exits");
     }
 
     //启动

@@ -27,6 +27,13 @@
     -fx-background-color: #ff8080;
 }
 
+/*VBOX*/
+/*最外层*/
+.outerVbox {
+    -fx-padding: 0;
+    -fx-border-color: #4600C7;
+}
+
 /*一般按钮*/
 
 .normalBtn {

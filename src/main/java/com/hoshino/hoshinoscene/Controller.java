@@ -1,16 +1,20 @@
 package com.hoshino.hoshinoscene;
 
+import com.hoshino.hoshinoscene.tools.DragUtil;
+import com.hoshino.hoshinoscene.tools.DrawUtil;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
 
     //从fxml获取最小化按钮
     @FXML
@@ -24,6 +28,9 @@ public class Controller {
     @FXML
     private ImageView closeImg;
 
+    @FXML
+    private HBox titlePane;
+
     //设置鼠标滑过/滑出时的图像
     Image closeHover = new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/closeHover.png")));
     Image closeOri = new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/close.png")));
@@ -33,7 +40,7 @@ public class Controller {
         System.exit(0);
     }
 
-    public void init(Stage stage) {
+    public void init(Stage stage, VBox root) {
         min.setOnAction((e)->{
             stage.setIconified(true);
         });
@@ -43,5 +50,12 @@ public class Controller {
         close.setOnMouseExited((e)->{
             closeImg.setImage(closeOri);
         });
+        DragUtil.addDragListener(stage, titlePane);
+        DrawUtil.addDrawFunc(stage, root);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
