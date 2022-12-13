@@ -31,6 +31,9 @@ public class Controller implements Initializable {
     @FXML
     private HBox titlePane;
 
+    @FXML
+    private Button maximum;
+
     //设置鼠标滑过/滑出时的图像
     Image closeHover = new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/closeHover.png")));
     Image closeOri = new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/close.png")));
@@ -49,6 +52,9 @@ public class Controller implements Initializable {
         });
         close.setOnMouseExited((e)->{
             closeImg.setImage(closeOri);
+        });
+        maximum.setOnMousePressed((e)->{
+            stage.setMaximized(true);
         });
         DragUtil.addDragListener(stage, titlePane);
         DrawUtil.addDrawFunc(stage, root);

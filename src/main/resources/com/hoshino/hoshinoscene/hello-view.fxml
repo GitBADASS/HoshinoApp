@@ -8,13 +8,20 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="381.0" prefWidth="678.0" style="-fx-padding: 0; -fx-border-color: #4600C7;" styleClass="outerVbox" stylesheets="@stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.Controller">
-   <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="678.0" fx:id="titlePane">
+   <HBox fx:id="titlePane" alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="678.0">
       <children>
-          <Button prefHeight="26.0" prefWidth="119.0" styleClass="normalBtn" text="HOSHINO" />
+          <Button fx:id="hoshino" prefHeight="26.0" prefWidth="119.0" styleClass="normalBtn" text="HOSHINO" />
          <Button fx:id="min" mnemonicParsing="false" styleClass="setWin">
             <graphic>
                <ImageView fitHeight="10.0" fitWidth="10.0">
                   <Image url="@icons/min.png" />
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button mnemonicParsing="false" styleClass="setWin" fx:id="maximum">
+            <graphic>
+               <ImageView fitHeight="10.0" fitWidth="10.0">
+                  <Image url="@icons/max.png"/>
                </ImageView>
             </graphic>
          </Button>
