@@ -31,13 +31,15 @@ public class HoshinoApp extends Application {
         stage.setScene(scene);
 
         //自定义
-        stage.initStyle(StageStyle.TRANSPARENT); //隐藏标题栏
+        stage.initStyle(StageStyle.UNIFIED); //隐藏标题栏
+        stage.setResizable(true);
         //stage.setIconified(true);//最小化
         //stage.setResizable(false);//大小固定
 
         //获取Controller类
         Controller controller = fxmlLoader.getController();
-        controller.init(stage, (VBox) root);//初始化方法
+        controller.setArgs(stage, (VBox) root);
+        controller.init();//初始化方法
 
         //显示场景
         stage.show();

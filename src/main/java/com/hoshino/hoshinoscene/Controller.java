@@ -2,7 +2,6 @@ package com.hoshino.hoshinoscene;
 
 import com.hoshino.hoshinoscene.tools.DragUtil;
 import com.hoshino.hoshinoscene.tools.DrawUtil;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,9 +14,17 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller implements Initializable {
+
+    private VBox root;
+
+    private Stage stage;
+
+    public  void setArgs(Stage stage, VBox root) {
+        this.stage = stage;
+        this.root = root;
+    }
 
     //从fxml获取最小化按钮
     @FXML
@@ -51,36 +58,23 @@ public class Controller implements Initializable {
         System.exit(0);
     }
 
-    public void init(Stage stage, VBox root) {
-        min.setOnAction((e)->{
-            stage.setIconified(true);
-        });
-        close.setOnMouseMoved((e)->{
-            closeImg.setImage(closeHover);
-        });
-        close.setOnMouseExited((e)->{
-            closeImg.setImage(closeOri);
-        });
-        maximum.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                maxImg.setImage(restoreImg);
-                stage.setMaximized(true);
-                maximum.setOnMousePressed(e->{
-                    stage.setMaximized(false);
-                    maxImg.setImage(oriMax);
-                });
-            }
-        });
-        /*maximum.setOnMousePressed((e)->{
+    public void init() {
+        maximum.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            maxImg.setImage(restoreImg);
             stage.setMaximized(true);
-        });*/
+            maximum.setOnMousePressed(e->{
+                stage.setMaximized(false);
+                maxImg.setImage(oriMax);
+            });
+        });
         DragUtil.addDragListener(stage, titlePane);
         DrawUtil.addDrawFunc(stage, root);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        min.setOnAction((e)-> stage.setIconified(true));
+        close.setOnMouseMoved((e)-> closeImg.setImage(closeHover));
+        close.setOnMouseExited((e)-> closeImg.setImage(closeOri));
     }
 }
