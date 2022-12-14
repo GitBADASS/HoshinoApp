@@ -14,7 +14,7 @@ If possible, web app or mobile app will come later.
 
 - [x] Basic GUI
 - [ ] Complete the custom-window
-- [ ] Complete the showing functions
+- [ ] Complete the functions of showing things
 - [ ] Complete the text editor
 - [ ] Connect to the database
 
