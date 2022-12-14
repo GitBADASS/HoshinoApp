@@ -18,10 +18,10 @@
                </ImageView>
             </graphic>
          </Button>
-         <Button mnemonicParsing="false" styleClass="setWin" fx:id="maximum">
+         <Button fx:id="maximum" mnemonicParsing="false" styleClass="setWin">
             <graphic>
-               <ImageView fitHeight="10.0" fitWidth="10.0">
-                  <Image url="@icons/max.png"/>
+               <ImageView fx:id="maxImg" fitHeight="10.0" fitWidth="10.0">
+                  <Image url="@icons/max.png" />
                </ImageView>
             </graphic>
          </Button>
