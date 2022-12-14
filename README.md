@@ -12,11 +12,11 @@ If possible, web app or mobile app will come later.
 
 **📝Development Progress**
 
-- [x] GUI
+- [x] Basic GUI
+- [ ] Complete the custom-window
+- [ ] Complete the functions of showing things
+- [ ] Complete the text editor
 - [ ] Connect to the database
-- [ ] Log in or sign up
-- [ ] Post your works(such as articles, music, painting and some other things)
-- [ ] Post your comment
 
 
 
