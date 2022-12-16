@@ -4,6 +4,10 @@
 
 **🥀If we are always busy in school studying or always short of developer, this project would be deserted🏜.**
 
+Now, it's main usage is to help user to learn English (after all we are only middle-school students, it seems that we actually need it XD).
+
+In the future, it's usage will be changed into showing or posting somethings.
+
 It is a JavaFX application of **Hoshino** (a private group set up by some students that post interesting things in a middle-school).
 
 It is only a GUI now, we will create some interesting functions later. It will be used to facilitate the posting, commenting, discussing and so on.
@@ -12,11 +16,7 @@ If possible, web app or mobile app will come later.
 
 **📝Development Progress**
 
-- [x] Basic GUI
-- [ ] Complete the custom-window
-- [ ] Complete the functions of showing things
-- [ ] Complete the text editor
-- [ ] Connect to the database
+- [ ] Add some main functions (we will write it in detail later)
 
 
 
@@ -31,6 +31,8 @@ Only a private group. We some students set up it to post some interesting things
 >ℹ提示：上方的英文版介绍更为详尽，某些方面你可能更需要阅读英文版
 
 **🥀如果我们始终缺少开发人员或者始终忙于在校的学习，这个项目或将被弃置🏜。**
+
+本项目将会被开发去辅助用户的英语学习（或许作为的中学生我们真的需要它）
 
 星夜社是一个由中学生建立的、主业为发布学校趣闻（~~或发一些牢骚~~）的团体。
 
