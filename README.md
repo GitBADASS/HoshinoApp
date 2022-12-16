@@ -16,12 +16,7 @@ If possible, web app or mobile app will come later.
 
 **📝Development Progress**
 
-- [x] Basic GUI
-- [ ] ~~Complete the custom-window~~
-- [ ] Complete the functions of showing things
 - [ ] Add some main functions (we will write it in detail later)
-- [ ] ~~Complete the text editor~~
-- [ ] ~~Connect to the database~~
 
 
 
