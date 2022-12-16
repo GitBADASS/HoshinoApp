@@ -1,7 +1,24 @@
+.main {
+    -fx-background-color: white;
+}
+
 #sidebar {
-    -fx-background-color: #e8e8e8;
+    -fx-background-color: #f8f8f8;
 }
 
 .sideBtn {
-    -fx-background-color: #e8e8e8;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-background-color: #f8f8f8;
+    -fx-min-width: 120;
+    -fx-pref-width: 150;
+    -fx-max-width: 200;
+}
+
+.sideBtn:hover {
+    -fx-background-color: #eaeaea;
+}
+
+.sideBtn:pressed {
+    -fx-background-color: none;
 }
