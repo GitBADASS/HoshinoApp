@@ -1,3 +1,7 @@
 #sidebar {
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #e8e8e8;
+}
+
+.sideBtn {
+    -fx-background-color: #e8e8e8;
 }

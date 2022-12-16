@@ -26,7 +26,9 @@ public class HoshinoApp extends Application {
         stage.setTitle("Hoshino");
         stage.getIcons().add(new Image(Objects.requireNonNull(Controller.class.getResourceAsStream("icons/little.png"))));
 
-        //设置场景
+        //设置
+        stage.setMinHeight(500);
+        stage.setMinWidth(800);
         stage.setScene(scene);
 
         //自定义
