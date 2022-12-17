@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox minHeight="600.0" minWidth="300.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.hoshino.hoshinoscene.tools.GenController">
+    <TextArea prefHeight="0.0" prefWidth="518.0" styleClass="wordsInput" text="Hello" fx:id="en"/>
+    <TextArea prefHeight="0.0" prefWidth="518.0" styleClass="wordsInput" text="你好" fx:id="cn"/>
+</VBox>

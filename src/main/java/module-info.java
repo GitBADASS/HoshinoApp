@@ -4,5 +4,6 @@ module com.hoshino.hoshinoscene {
 
 
     opens com.hoshino.hoshinoscene to javafx.fxml;
+    opens com.hoshino.hoshinoscene.tools to javafx.fxml;
     exports com.hoshino.hoshinoscene;
 }

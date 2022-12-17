@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class GenWarehouse extends Stage {
     public GenWarehouse() throws IOException {
-        Scene sc = new Scene(new FXMLLoader(GenWarehouse.class.getResource("pages/GenWrh.fxml")).load());
+        Scene sc = new Scene(new FXMLLoader(GenWarehouse.class.getResource("pages/aaa.fxml")).load());
         this.setScene(sc);
         this.setTitle("Hoshino");
         this.setResizable(false);

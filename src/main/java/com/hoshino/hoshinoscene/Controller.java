@@ -3,7 +3,6 @@ package com.hoshino.hoshinoscene;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //创建库：创建新窗口
+        //创建新窗口
         createWarehouse.setOnMousePressed(e->{
             //检查新窗口是否已存在，若为否，则新建，若为是，则将它拽到前面
             if(!gen.isShowing()) {
