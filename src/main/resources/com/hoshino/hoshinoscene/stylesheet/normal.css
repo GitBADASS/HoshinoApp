@@ -24,5 +24,15 @@
 }
 
 .wordsInput {
-    -fx-border-style:solid; -fx-border-width: 0 0 2 0; -fx-border-color: #a8a8a8;
+    -fx-border-style:solid; -fx-border-width: 0 0 1 0; -fx-border-color: #a8a8a8;
+
+}
+
+.wordsInput:focused {
+
+}
+
+.settingsBtn {
+    -fx-start-margin: 10;
+    -fx-end-margin: 10;
 }
