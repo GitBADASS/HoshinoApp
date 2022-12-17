@@ -16,7 +16,9 @@ If possible, web app or mobile app will come later.
 
 **📝Development Progress**
 
-- [ ] Add some main functions (we will write it in detail later)
+- [x] basic GUI 
+- [ ] function of creating and saving an EnglishLearningWarehouse
+- [ ] function of setting an EnglishLearningWarehouse
 
 
 
