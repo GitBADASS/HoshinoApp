@@ -24,8 +24,8 @@ public class GenController implements Initializable {
         clearEn.setOnMousePressed(e->en.setText(""));//英
         clearCn.setOnMousePressed(e->cn.setText(""));//中
 
-        solveTooLong(en);
-        solveTooLong(cn);
+        solve(en);
+        solve(cn);
     }
 
     /*待完成：
@@ -33,9 +33,9 @@ public class GenController implements Initializable {
        更改不规范提示样式，最好是加上显示悬浮文本
        等等
     * */
-    private void solveTooLong(TextField tf) {
+    private void solve(TextField tf) {
         tf.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
-            if(tf.getLength()>50 || Objects.equals(tf.getText(), " ")) {
+            if(tf.getLength() >= 50 || Objects.equals(tf.getText(), " ")) {
                 tf.setStyle("-fx-background-color: #ffe1e1;-fx-border-style:solid;-fx-border-width: 0 0 1 0;-fx-border-color: #ffb0b0;");
                 Timer t = new Timer();
                 TimerTask tk = new TimerTask() {
