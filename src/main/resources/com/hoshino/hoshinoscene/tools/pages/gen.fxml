@@ -7,28 +7,43 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="9.0" minWidth="300.0" prefHeight="185.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
+<VBox minHeight="9.0" minWidth="300.0" prefHeight="240.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
    <VBox prefWidth="400.0" VBox.vgrow="ALWAYS">
       <children>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
             <children>
-               <Label text="填写英语" />
+               <Label text="填写英语">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin></Label>
                 <TextField fx:id="en" styleClass="wordsInput" />
-               <Button fx:id="clearEn" mnemonicParsing="false" text="清空" />
+               <Button fx:id="clearEn" mnemonicParsing="false" prefWidth="0.0" styleClass="settingsBtn" text="x">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin></Button>
             </children>
          </HBox>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
             <children>
-               <Label text="填写中文" />
+               <Label text="填写中文">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin></Label>
                 <TextField fx:id="cn" prefWidth="161.0" styleClass="wordsInput" />
-               <Button fx:id="clearCn" mnemonicParsing="false" text="清空" />
+               <Button fx:id="clearCn" mnemonicParsing="false" styleClass="settingsBtn" text="x">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin></Button>
             </children>
          </HBox>
-         <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0">
+         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="400.0">
             <children>
                <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                   <children>
-                     <Button mnemonicParsing="false" prefWidth="65.0" text="取消" />
+                     <Button mnemonicParsing="false" prefWidth="65.0" styleClass="settingsBtn" text="取消">
+                        <HBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </HBox.margin></Button>
                   </children>
                   <padding>
                      <Insets left="10.0" />
@@ -36,8 +51,14 @@
                </HBox>
                <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
                   <children>
-                     <Button mnemonicParsing="false" text="下一个" />
-                     <Button mnemonicParsing="false" text="保存" />
+                     <Button mnemonicParsing="false" styleClass="settingsBtn" text="下一个">
+                        <HBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </HBox.margin></Button>
+                     <Button mnemonicParsing="false" styleClass="settingsBtn" text="保存">
+                        <HBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </HBox.margin></Button>
                   </children>
                   <HBox.margin>
                      <Insets />

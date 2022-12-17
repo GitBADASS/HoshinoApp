@@ -25,14 +25,23 @@
 
 .wordsInput {
     -fx-border-style:solid; -fx-border-width: 0 0 1 0; -fx-border-color: #a8a8a8;
-
+    -fx-background-color: none;
+    -fx-spacing: 0 10 0 10;
 }
 
 .wordsInput:focused {
-
+    -fx-background-color: #e1e1e1;
 }
 
 .settingsBtn {
-    -fx-start-margin: 10;
-    -fx-end-margin: 10;
+    -fx-background-color: #e1e1e1;
+    -fx-padding: 5 15 5 15;
+}
+
+.settingsBtn:hover {
+    -fx-background-color: #d5d5d5;
+}
+
+.settingsBtn:pressed {
+    -fx-background-color: none;
 }
