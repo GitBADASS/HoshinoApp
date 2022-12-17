@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox minHeight="600.0" minWidth="300.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+    <TextArea prefHeight="0.0" prefWidth="518.0" styleClass="wordsInput" text="Hello" />
+    <TextArea prefHeight="0.0" prefWidth="518.0" styleClass="wordsInput" text="你好" />
+</VBox>
