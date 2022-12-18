@@ -4,7 +4,7 @@
 
 **🥀If we are always busy in school studying or always short of developer, this project would be deserted🏜.**
 
-I may got the COVID-19 so I may make less contributions these days.
+I may get the COVID-19 so I may make less contributions these days.
 
 Now, it's main usage is to help user to learn English (after all we are only middle-school students, it seems that we actually need it XD).
 
