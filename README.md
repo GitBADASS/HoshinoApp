@@ -16,7 +16,9 @@ If possible, web app or mobile app will come later.
 
 **📝Development Progress**
 
-- [ ] Add some main functions (we will write it in detail later)
+- [ ] complete the function of adding a words warehouse
+- [ ] complete the function of saving a words warehouse
+- [ ] complete the function of practicing words
 
 
 
