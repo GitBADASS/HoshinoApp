@@ -4,6 +4,8 @@
 
 **🥀If we are always busy in school studying or always short of developer, this project would be deserted🏜.**
 
+I may get the COVID-19 so I may make less contributions these days.
+
 Now, it's main usage is to help user to learn English (after all we are only middle-school students, it seems that we actually need it XD).
 
 In the future, it's usage will be changed into showing or posting somethings.
@@ -32,7 +34,7 @@ Only a private group. We some students set up it to post some interesting things
 
 **🥀如果我们始终缺少开发人员或者始终忙于在校的学习，这个项目或将被弃置🏜。**
 
-本项目将会被开发去辅助用户的英语学习（或许作为的中学生我们真的需要它）
+本项目将会被开发去辅助用户的英语学习（有单词学习库等功能，或许作为的中学生我们真的需要它）
 
 星夜社是一个由中学生建立的、主业为发布学校趣闻（~~或发一些牢骚~~）的团体。
 
