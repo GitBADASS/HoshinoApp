@@ -1,5 +1,6 @@
 package com.hoshino.hoshinoscene;
 
+import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,6 +20,8 @@ public class Controller implements Initializable{
     //创建一个新窗口
     GenWarehouse gen = new GenWarehouse();
 
+    //创建库
+
     public Controller() throws IOException {
     }
 
@@ -32,6 +35,9 @@ public class Controller implements Initializable{
             } else {
                 gen.toFront();
             }
+            //创建一个库
+            WarehouseStyle wh = new WarehouseStyle("TestTitle", "TestDescription");
+            root.getChildren().add(wh);
         });
     }
 }

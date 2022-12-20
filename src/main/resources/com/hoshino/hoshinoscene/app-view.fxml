@@ -12,4 +12,5 @@
    <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
       <Button text="创建库" fx:id="createWarehouse" />
    </HBox>
+   <children></children>
 </VBox>
