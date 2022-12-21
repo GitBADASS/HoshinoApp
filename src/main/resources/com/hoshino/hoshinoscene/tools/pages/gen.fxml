@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -57,11 +58,11 @@
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
                </Label>
-               <TextField prefHeight="80.0" prefWidth="304.0" styleClass="descriptionInput">
+               <TextArea prefHeight="200.0" prefWidth="200.0" styleClass="descriptionInput">
                   <HBox.margin>
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
-               </TextField>
+               </TextArea>
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="400.0">
