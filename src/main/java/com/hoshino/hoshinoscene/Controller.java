@@ -35,9 +35,7 @@ public class Controller implements Initializable{
             } else {
                 gen.toFront();
             }
-            //创建一个库
-            WarehouseStyle wh = new WarehouseStyle("TestTitle", "TestDescription");
-            root.getChildren().add(wh);
+
         });
     }
 }

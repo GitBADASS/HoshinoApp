@@ -5,6 +5,7 @@ import javafx.scene.layout.VBox;
 
 public class WarehouseStyle extends VBox {
     public WarehouseStyle(String title, String description) {
+
         Label titleText = new Label(title);
         setId(title);
         Label descriptionText = new Label(description);

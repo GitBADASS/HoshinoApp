@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="9.0" minWidth="300.0" prefHeight="240.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
+<VBox minHeight="9.0" minWidth="300.0" prefHeight="534.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
    <VBox prefWidth="400.0" VBox.vgrow="ALWAYS">
       <children>
          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
@@ -36,6 +36,34 @@
                   </HBox.margin></Button>
             </children>
          </HBox>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Label text="学习库名称">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin>
+               </Label>
+               <TextField prefWidth="304.0" styleClass="wordsInput">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin>
+               </TextField>
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Label text="学习库描述">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin>
+               </Label>
+               <TextField prefHeight="80.0" prefWidth="304.0" styleClass="descriptionInput">
+                  <HBox.margin>
+                     <Insets left="5.0" right="5.0" />
+                  </HBox.margin>
+               </TextField>
+            </children>
+         </HBox>
          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="400.0">
             <children>
                <HBox alignment="CENTER_LEFT" prefWidth="200.0">
@@ -58,7 +86,8 @@
                      <Button mnemonicParsing="false" styleClass="settingsBtn" text="保存">
                         <HBox.margin>
                            <Insets left="5.0" right="5.0" />
-                        </HBox.margin></Button>
+                        </HBox.margin>
+                     </Button>
                   </children>
                   <HBox.margin>
                      <Insets />
