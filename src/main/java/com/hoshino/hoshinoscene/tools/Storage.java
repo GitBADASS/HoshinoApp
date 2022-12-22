@@ -1,12 +1,10 @@
 package com.hoshino.hoshinoscene.tools;
 
-import com.hoshino.hoshinoscene.custom.WarehouseStyle;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Storage {
-    public static ArrayList<WordsWarehouse> wh = new ArrayList<>();
+    static ArrayList<WordsWarehouse> wh = new ArrayList<>();
     static {
         HashMap<String, String> h = new HashMap<>();
         h.put("test", "测试");
@@ -25,14 +23,14 @@ public class Storage {
     }
 
     //遍历打印集合
-    public static void print() {
+    public static void printAll() {
         for(WordsWarehouse w : wh) {
             System.out.println(w.toString());
         }
     }
 
     public static void main(String[] args) {
-        print();
+        printAll();
     }
 
 }

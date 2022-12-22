@@ -4,6 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.*;
@@ -31,6 +32,11 @@ public class GenController implements Initializable {
         solve(description);
 
         AddSaveEvent();
+    }
+
+    //保存退出
+    public void init(Stage stage) {
+        save.setOnAction(e-> stage.close());
     }
 
     /*待完成：
@@ -71,7 +77,7 @@ public class GenController implements Initializable {
     }
 
     private void AddSaveEvent() {
-        save.setOnAction(e->{
+        save.setOnMousePressed(e->{
             HashMap<String, String> h = new HashMap<>();
             h.put(en.getText(), cn.getText());
             WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), h, Storage.wh.size());
