@@ -1,6 +1,5 @@
 package com.hoshino.hoshinoscene.custom;
 
-import com.hoshino.hoshinoscene.tools.Storage;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 

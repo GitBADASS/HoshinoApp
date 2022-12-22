@@ -1,6 +1,5 @@
 package com.hoshino.hoshinoscene;
 
-import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

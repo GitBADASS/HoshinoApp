@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 //单词库bean类
 public class WordsWarehouse {
-    private final int INDEX;
 
     private String name;
 
@@ -12,16 +11,12 @@ public class WordsWarehouse {
 
     private HashMap<String, String> content = new HashMap<>();
 
-    public WordsWarehouse(String name, String description, HashMap<String, String> content, int index) {
+    public WordsWarehouse(String name, String description, HashMap<String, String> content) {
         this.name = name;
         this.description = description;
         this.content = content;
-        this.INDEX = index;
     }
 
-    public int getINDEX() {
-        return INDEX;
-    }
 
     public String getName() {
         return name;

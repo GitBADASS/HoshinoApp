@@ -80,8 +80,7 @@ public class GenController implements Initializable {
         save.setOnMousePressed(e->{
             HashMap<String, String> h = new HashMap<>();
             h.put(en.getText(), cn.getText());
-            WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), h, Storage.wh.size());
-            Storage.save(wh);
+
         });
     }
 }
