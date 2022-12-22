@@ -2,13 +2,11 @@ package com.hoshino.hoshinoscene.tools;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class GenController implements Initializable {
 
@@ -17,6 +15,9 @@ public class GenController implements Initializable {
     public TextField cn;//中文输入框
     public Button clearEn;//英文清空框
     public Button clearCn;//中文清空框
+    public Button save;//保存按钮
+    public TextArea description;//学习库描述
+    public TextField name;//学习库名称
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -26,6 +27,10 @@ public class GenController implements Initializable {
 
         solve(en);
         solve(cn);
+        solve(name);
+        solve(description);
+
+        AddSaveEvent();
     }
 
     /*待完成：
@@ -46,6 +51,31 @@ public class GenController implements Initializable {
                 };
                 t.schedule(tk, 2000);
             }
+        });
+    }
+
+    private void solve(TextArea ta) {
+        ta.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
+            if(ta.getLength() >= 200 || Objects.equals(ta.getText(), " ")) {
+                ta.setStyle("-fx-background-color: #ffe1e1;-fx-border-style:solid;-fx-border-width: 0 0 1 0;-fx-border-color: #ffb0b0;");
+                Timer t = new Timer();
+                TimerTask tk = new TimerTask() {
+                    @Override
+                    public void run() {
+                        ta.setStyle(null);
+                    }
+                };
+                t.schedule(tk, 2000);
+            }
+        });
+    }
+
+    private void AddSaveEvent() {
+        save.setOnAction(e->{
+            HashMap<String, String> h = new HashMap<>();
+            h.put(en.getText(), cn.getText());
+            WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), h, Storage.wh.size());
+            Storage.save(wh);
         });
     }
 }

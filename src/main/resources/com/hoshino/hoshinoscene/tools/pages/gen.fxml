@@ -44,7 +44,7 @@
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
                </Label>
-               <TextField prefWidth="304.0" styleClass="wordsInput">
+               <TextField prefWidth="304.0" styleClass="wordsInput" fx:id="name">
                   <HBox.margin>
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
@@ -58,7 +58,7 @@
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
                </Label>
-               <TextArea prefHeight="200.0" prefWidth="200.0" styleClass="descriptionInput">
+               <TextArea prefHeight="200.0" prefWidth="200.0" styleClass="descriptionInput" fx:id="description">
                   <HBox.margin>
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
@@ -84,7 +84,7 @@
                         <HBox.margin>
                            <Insets left="5.0" right="5.0" />
                         </HBox.margin></Button>
-                     <Button mnemonicParsing="false" styleClass="settingsBtn" text="保存">
+                     <Button mnemonicParsing="false" styleClass="settingsBtn" text="保存" fx:id="save">
                         <HBox.margin>
                            <Insets left="5.0" right="5.0" />
                         </HBox.margin>
