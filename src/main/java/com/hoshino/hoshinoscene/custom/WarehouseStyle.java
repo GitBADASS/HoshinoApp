@@ -1,5 +1,6 @@
 package com.hoshino.hoshinoscene.custom;
 
+import com.alibaba.fastjson2.JSONObject;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -21,6 +22,11 @@ public class WarehouseStyle extends VBox {
         setOnMousePressed(e->test.setText("NONONONONO"));
         //待补充...
         //...
+    }
+
+    //更应该被选用的一种方法（到时候可以解析JSON文件为JSONObject，然后传入，待定
+    public WarehouseStyle(JSONObject jsonObject) {
+        //施工中...
     }
 
     //更改方法
