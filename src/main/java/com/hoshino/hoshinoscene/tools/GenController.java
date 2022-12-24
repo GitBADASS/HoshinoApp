@@ -40,7 +40,7 @@ public class GenController implements Initializable {
                 h.put(en.getText(), cn.getText()); //TODO:这里要根据后期需求整改
             }
             WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), h);
-            if(!unconformable(name) && !unconformable(description)) {
+            if(!unconformable(name) && !unconformable(description) && h.size() != 0) {
                 Storage.save(wh);
                 stage.close();
             }
