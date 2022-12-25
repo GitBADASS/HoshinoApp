@@ -58,7 +58,7 @@
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
                </Label>
-               <TextArea fx:id="description" prefHeight="200.0" prefWidth="200.0" styleClass="descriptionInput">
+               <TextArea fx:id="description" prefHeight="200.0" prefWidth="200.0" style="-fx-control-inner-background: none;" styleClass="descriptionInput" wrapText="true">
                   <HBox.margin>
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin>
