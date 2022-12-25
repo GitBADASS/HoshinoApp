@@ -2,9 +2,13 @@ package com.hoshino.hoshinoscene;
 
 import com.hoshino.hoshinoscene.tools.CustomButton;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +39,15 @@ public class Controller implements Initializable{
             } else {
                 gen.toFront();
             }
+        });
 
+    }
+
+    public void addExitListner(Stage stage) {
+        root.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode()== KeyCode.ESCAPE) {
+                stage.close();
+            }
         });
     }
 }

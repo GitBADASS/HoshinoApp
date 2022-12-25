@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="9.0" minWidth="300.0" prefHeight="534.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
+<VBox fx:id="root" minHeight="9.0" minWidth="300.0" prefHeight="534.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
    <VBox prefWidth="400.0" VBox.vgrow="ALWAYS">
       <children>
          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">

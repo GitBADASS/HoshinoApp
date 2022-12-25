@@ -36,6 +36,10 @@ public class HoshinoApp extends Application {
         stage.initStyle(StageStyle.UNIFIED); //隐藏标题栏
         stage.setResizable(true);
 
+        //实现Controller方法
+        Controller c = fxmlLoader.getController();//获得对应Controller对象
+        c.addExitListner(stage);
+
         //显示场景
         stage.show();
 

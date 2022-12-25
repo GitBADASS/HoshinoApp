@@ -4,6 +4,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -19,6 +21,7 @@ public class GenController implements Initializable {
     public Button save;//保存按钮
     public TextArea description;//学习库描述
     public TextField name;//学习库名称
+    public VBox root;//最底部VBox
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,6 +47,11 @@ public class GenController implements Initializable {
                 if(Storage.save(wh)){
                     System.out.println("Save Successfully!");
                 }
+                stage.close();
+            }
+        });
+        root.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode()== KeyCode.ESCAPE) {
                 stage.close();
             }
         });
