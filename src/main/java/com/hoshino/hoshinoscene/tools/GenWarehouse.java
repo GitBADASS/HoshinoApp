@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/*
+    TODO:需求变更
+     更改单词库の单词の录入方式
+*/
 public class GenWarehouse extends Stage {
     public GenWarehouse() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GenWarehouse.class.getResource("pages/gen.fxml"));
