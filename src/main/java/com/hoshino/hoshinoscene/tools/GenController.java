@@ -1,5 +1,7 @@
 package com.hoshino.hoshinoscene.tools;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -64,7 +66,7 @@ public class GenController implements Initializable {
     }
 
     private void solve(TextField tf) {
-        tf.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
+        tf.textProperty().addListener((observableValue, aBoolean, t1) -> {
             if(unconformable(tf)) {
                 tf.setStyle("-fx-background-color: #ffe1e1;-fx-border-style:solid;-fx-border-width: 0 0 1 0;-fx-border-color: #ffb0b0;");
                 Timer t = new Timer();
@@ -80,7 +82,7 @@ public class GenController implements Initializable {
     }
 
     private void solve(TextArea ta) {
-        ta.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
+        ta.textProperty().addListener((observableValue, aBoolean, t1) -> {
             if(unconformable(ta)) {
                 ta.setStyle("-fx-background-color: #ffe1e1;-fx-border-style:solid;-fx-border-width: 0 0 1 0;-fx-border-color: #ffb0b0;");
                 Timer t = new Timer();
