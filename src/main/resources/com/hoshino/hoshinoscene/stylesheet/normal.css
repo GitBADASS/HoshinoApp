@@ -52,3 +52,6 @@
     -fx-background-color: none;
 }
 
+.text-area {
+    -fx-control-inner-background :   #f4f4f4;
+}

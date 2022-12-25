@@ -82,7 +82,7 @@ public class GenController implements Initializable {
     private void solve(TextArea ta) {
         ta.textProperty().addListener((observableValue, aBoolean, t1) -> {
             if(unconformable(ta)) {
-                ta.setStyle("-fx-background-color: #ffe1e1;-fx-border-style:solid;-fx-border-width: 0 0 1 0;-fx-border-color: #ffb0b0;");
+                ta.setStyle("-fx-control-inner-background:#ffe1e1;;-fx-border-style:solid;-fx-border-width: 1 1 1 1;-fx-border-color: #ffb0b0;");
                 Timer t = new Timer();
                 TimerTask tk = new TimerTask() {
                     @Override
