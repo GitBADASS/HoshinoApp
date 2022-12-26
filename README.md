@@ -17,9 +17,9 @@ If possible, web app or mobile app will come later.
 **📝Development Progress**
 
 - [x] complete the function of adding a words warehouse
-- [ ] complete the function of saving a words warehouse in JSON files and showing it
+- [x] complete the function of saving a words warehouse in JSON files and showing it
 - [ ] complete the function of setting a words warehouse
-- [ ] complete the function of practicing words
+- [ ] complete the function of wordspracticing
 
 
 
