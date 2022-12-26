@@ -50,6 +50,16 @@
     -fx-control-inner-background: #f4f4f4;
 }
 
+.warn {
+    -fx-background-color: #ffe1e1;
+    -fx-text-fill: #8d0000;
+    -fx-padding: 10;
+}
+
+.normal {
+    -fx-padding: 10;
+}
+
 /*自定义滚动条*/
 
 .scroll-bar:vertical .track{

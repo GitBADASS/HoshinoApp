@@ -11,60 +11,69 @@
 <VBox fx:id="root" minHeight="9.0" minWidth="300.0" prefHeight="534.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
    <VBox prefWidth="400.0" VBox.vgrow="ALWAYS">
       <children>
-         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+         <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
             <children>
-               <Label text="填写英语">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin></Label>
-                <TextField fx:id="en" styleClass="wordsInput" />
-               <Button fx:id="clearEn" mnemonicParsing="false" prefWidth="0.0" styleClass="settingsBtn" text="x">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin></Button>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label styleClass="normal" text="填写英语">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Label>
+                      <TextField fx:id="en" styleClass="wordsInput" />
+                     <Button fx:id="clearEn" mnemonicParsing="false" prefWidth="0.0" styleClass="settingsBtn" text="x">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label styleClass="normal" text="填写中文">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Label>
+                      <TextField fx:id="cn" prefWidth="161.0" styleClass="wordsInput" />
+                     <Button fx:id="clearCn" mnemonicParsing="false" styleClass="settingsBtn" text="x">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label styleClass="normal" text="库名称">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Label>
+                     <TextField fx:id="name" prefWidth="161.0" styleClass="wordsInput">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </TextField>
+                     <Button fx:id="clearCn1" mnemonicParsing="false" styleClass="settingsBtn" text="x" />
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label styleClass="normal" text="库描述">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Label>
+                     <TextArea fx:id="description" prefHeight="200.0" prefWidth="200.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </TextArea>
+                  </children>
+               </HBox>
             </children>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
-            <children>
-               <Label text="填写中文">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin></Label>
-                <TextField fx:id="cn" prefWidth="161.0" styleClass="wordsInput" />
-               <Button fx:id="clearCn" mnemonicParsing="false" styleClass="settingsBtn" text="x">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin></Button>
-            </children>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
-               <Label text="学习库名称">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin>
-               </Label>
-               <TextField fx:id="name" prefWidth="200.0" styleClass="wordsInput">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin>
-               </TextField>
-            </children>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
-               <Label text="学习库描述">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin>
-               </Label>
-               <TextArea fx:id="description" prefHeight="200.0" prefWidth="200.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin>
-               </TextArea>
-            </children>
-         </HBox>
+         </VBox>
          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="400.0">
             <children>
                <HBox alignment="CENTER_LEFT" prefWidth="200.0">
@@ -95,6 +104,11 @@
                </HBox>
             </children>
          </HBox>
+         <VBox alignment="CENTER" prefHeight="60.0" prefWidth="400.0">
+            <children>
+               <Label fx:id="warnText" alignment="CENTER" prefHeight="60.0" prefWidth="400.0" styleClass="warn" text="保存失败，请检查书写是否规范" />
+            </children>
+         </VBox>
       </children>
    </VBox>
 </VBox>

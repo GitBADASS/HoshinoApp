@@ -1,10 +1,7 @@
 package com.hoshino.hoshinoscene.tools;
 
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -22,6 +19,7 @@ public class GenController implements Initializable {
     public TextArea description;//学习库描述
     public TextField name;//学习库名称
     public VBox root;//最底部VBox
+    public Label warnText;
 
     //将所有文本框放入
     List<TextInputControl> textInputList = new ArrayList<>();
@@ -43,6 +41,9 @@ public class GenController implements Initializable {
         solve(cn);
         solve(name);
         solve(description);
+
+        //警告文字默认隐藏
+        warnText.setVisible(false);
     }
 
     //保存退出的实现
