@@ -20,7 +20,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                      <TextField fx:id="en" styleClass="wordsInput" />
+                      <TextField fx:id="en" prefHeight="25.0" styleClass="wordsInput" />
                      <Button fx:id="clearEn" mnemonicParsing="false" prefWidth="0.0" styleClass="settingsBtn" text="x">
                         <HBox.margin>
                            <Insets />
@@ -35,7 +35,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                      <TextField fx:id="cn" prefWidth="161.0" styleClass="wordsInput" />
+                      <TextField fx:id="cn" prefHeight="25.0" styleClass="wordsInput" />
                      <Button fx:id="clearCn" mnemonicParsing="false" styleClass="settingsBtn" text="x">
                         <HBox.margin>
                            <Insets />
@@ -50,7 +50,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextField fx:id="name" prefWidth="161.0" styleClass="wordsInput">
+                     <TextField fx:id="name" prefHeight="25.0" styleClass="wordsInput">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>

@@ -1,10 +1,12 @@
 package com.hoshino.hoshinoscene.tools;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.*;
@@ -43,11 +45,23 @@ public class GenController implements Initializable {
         solve(description);
 
         //警告文字默认隐藏
-        warnText.setVisible(false);
+        warnText.setOpacity(0);
     }
 
     //保存退出的实现
     public void init(Stage stage) {
+        //添加动画 TODO:后期考虑是否单独创建一个类继承自 FadeTransition 用于添加动画
+        //淡出：
+        FadeTransition animationOut = new FadeTransition(Duration.millis(500), warnText);
+        animationOut.setFromValue(1);
+        animationOut.setToValue(0);
+        animationOut.setAutoReverse(true);
+        //淡入：
+        FadeTransition animationIn = new FadeTransition(Duration.millis(500), warnText);
+        animationIn.setFromValue(0);
+        animationIn.setToValue(1);
+        animationIn.setAutoReverse(true);
+
         //添加点击事件监听
         save.setOnMousePressed(e->{
             //为添加单词学习库做准备
@@ -72,6 +86,18 @@ public class GenController implements Initializable {
 
                     stage.close();//退出
                 }
+            } else {
+                animationIn.play();//显示警告文本
+                //设置延时
+                Timer t = new Timer();
+                //延时任务
+                TimerTask tt = new TimerTask() {
+                    @Override
+                    public void run() {
+                        animationOut.play();
+                    }
+                };
+                t.schedule(tt, 2000);//2s后执行
             }
         });
 
