@@ -97,7 +97,7 @@ public class GenController implements Initializable {
                         animationOut.play();
                     }
                 };
-                t.schedule(tt, 2000);//2s后执行
+                t.schedule(tt, 3000);//3s后执行
             }
         });
 
