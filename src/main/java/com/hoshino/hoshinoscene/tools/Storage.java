@@ -25,11 +25,11 @@ public class Storage {
         String s = warehouse.toJSONString();
         //创建JSON文件并写入
         try {
-            File dir = new File("../json/warehouses/");
-            File warehouse = new File("../json/warehouses/"+wh.getName()+".json");
+            File dir = new File("c:\\HoshinoApp\\json\\warehouses");
+            File warehouse = new File("c:\\HoshinoApp\\json\\warehouses\\"+wh.getName()+".json");
             //判断文件夹是否存在，若不存在则创建
-            if(!dir.exists() && !dir.isDirectory()) {
-                if(dir.mkdir()){
+            if(!dir.exists()/* && !dir.isDirectory()*/) {
+                if(dir.mkdirs()){
                     System.out.println("文件夹成功创建，将进一步创建文件");
                 } else {
                     System.out.println("文件夹创建失败");
@@ -46,18 +46,8 @@ public class Storage {
                 System.out.println("文件 " + wh.getName() + ".json 已存在");//此时为创建失败，flag值仍为false
             }
         } catch (IOException e) {
-            System.out.print("JSON文件创建和写入过程出错");//出错时提示
+            System.out.println("JSON文件创建和写入过程出错");//出错时提示
         }
         return flag;
     }
-
-    /*public static void main(String[] args) throws FileNotFoundException {
-        HashMap<String, String> h = new HashMap<>();
-        h.put("test", "测试");
-        WordsWarehouse w = new WordsWarehouse("Test", "it is a test warehouse", h);
-        warehouse.put("test", w);
-        String s = warehouse.toJSONString();
-        System.out.println(s + "\n" + s.length());
-    }*/
-
 }

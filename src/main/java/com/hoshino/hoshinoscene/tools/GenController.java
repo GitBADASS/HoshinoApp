@@ -58,7 +58,7 @@ public class GenController implements Initializable {
             if(!unconformable(name) && !unconformable(description) && h.size() != 0) {
                 //如果保存成功
                 if(Storage.save(wh)){
-                    System.out.println("Save Successfully!");//控制台输出语句
+                    System.out.println("文件成功保存！");//控制台输出语句
                     stage.close();//退出
                 }
             }
