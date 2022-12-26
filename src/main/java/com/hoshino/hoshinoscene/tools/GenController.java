@@ -23,6 +23,9 @@ public class GenController implements Initializable {
     public TextField name;//学习库名称
     public VBox root;//最底部VBox
 
+    //将所有文本框放入
+    List<TextInputControl> textInputList = new ArrayList<>();
+
     //实现方法
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -33,7 +36,7 @@ public class GenController implements Initializable {
         deleteEmpty(cn);
         deleteEmpty(name);
         deleteEmpty(description);
-        //需要增添对中英文内容的判断（使用正则表达式
+        //TODO:需要增添对中英文内容的判断（使用正则表达式
 
         //检查是否最基本地合格：
         solve(en);
@@ -59,6 +62,13 @@ public class GenController implements Initializable {
                 //如果保存成功
                 if(Storage.save(wh)){
                     System.out.println("文件成功保存！");//控制台输出语句
+                    //将所有输入框对象放入集合并清空（下方ESC退出并不会清空
+                    textInputList.add(en);//英文输入框
+                    textInputList.add(cn);//中文输入框
+                    textInputList.add(name);//名称
+                    textInputList.add(description);//描述
+                    clear(textInputList);//清空
+
                     stage.close();//退出
                 }
             }
@@ -137,5 +147,12 @@ public class GenController implements Initializable {
     //指定按钮按下时清空指定输入框
     private void addClearFun(TextInputControl t, Button clearBtn) {
         clearBtn.setOnAction(e->t.clear());
+    }
+
+    //清空方法
+    private void clear(List<TextInputControl> t) {
+        for(TextInputControl e : t) {
+            e.setText("");
+        }
     }
 }
