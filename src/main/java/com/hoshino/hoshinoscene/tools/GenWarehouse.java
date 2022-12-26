@@ -19,7 +19,7 @@ public class GenWarehouse extends Stage {
         GenController gc = fxmlLoader.getController();
         gc.init(this);
         this.setScene(sc);
-        this.setTitle("Hoshino");
+        this.setTitle("Hoshino Warehouse");
         this.setResizable(false);
         this.setAlwaysOnTop(true);
         this.getIcons().add(new Image(Objects.requireNonNull(HoshinoApp.class.getResourceAsStream("icons/little.png"))));
