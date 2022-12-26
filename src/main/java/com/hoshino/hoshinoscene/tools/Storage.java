@@ -25,7 +25,16 @@ public class Storage {
         String s = warehouse.toJSONString();
         //创建JSON文件并写入
         try {
-            File warehouse = new File("json/warehouses/"+wh.getName()+".json");
+            File dir = new File("../json/warehouses/");
+            File warehouse = new File("../json/warehouses/"+wh.getName()+".json");
+            //判断文件夹是否存在，若不存在则创建
+            if(!dir.exists() && !dir.isDirectory()) {
+                if(dir.mkdir()){
+                    System.out.println("文件夹成功创建，将进一步创建文件");
+                } else {
+                    System.out.println("文件夹创建失败");
+                }
+            }
             if(warehouse.createNewFile()) {
                 FileOutputStream wos = new FileOutputStream(warehouse);//开放一个文件输出流（文件名用学习库类的“name”以便日后的操作，文件格式为JSON
                 OutputStreamWriter writer = new OutputStreamWriter(wos, StandardCharsets.UTF_8);//构建OutputStreamWriter对象以兼容编码
@@ -34,7 +43,7 @@ public class Storage {
                 wos.close();//关闭文件输出流，释放资源
                 flag = true;//此时为创建成功，flag值设为true
             } else {
-                System.out.println("File " + wh.getName() + ".json exists");//此时为创建失败，flag值仍为false
+                System.out.println("文件 " + wh.getName() + ".json 已存在");//此时为创建失败，flag值仍为false
             }
         } catch (IOException e) {
             System.out.print("JSON文件创建和写入过程出错");//出错时提示
