@@ -25,8 +25,8 @@ public class Storage {
         String s = warehouse.toJSONString();
         //创建JSON文件并写入
         try {
-            File dir = new File("c:\\HoshinoApp\\json\\warehouses");
-            File warehouse = new File("c:\\HoshinoApp\\json\\warehouses\\"+wh.getName()+".json");
+            File dir = new File("json\\warehouses");
+            File warehouse = new File("json\\warehouses\\"+wh.getName()+".json");
             //判断文件夹是否存在，若不存在则创建
             if(!dir.exists()/* && !dir.isDirectory()*/) {
                 if(dir.mkdirs()){
