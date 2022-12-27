@@ -38,11 +38,7 @@ public class GenController implements Initializable {
         List<HBox> elementsArrayList = new ArrayList<>();
         addElement.setOnAction(e->{
             //TODO:这个到时候自己写一个HBox的子类在这里用，该子类特点：含有两个 TextFiled、一个 checkbox，然后ID待定
-            HBox h = new HBox();
-            h.setStyle("-fx-background-color: gray; -fx-pref-width: 300px; -fx-pref-height: 20px");
-            Label text = new Label();
-            text.setText("测试");
-            h.getChildren().add(text);
+            WordsInput h = new WordsInput();
             elementsArrayList.add(h);
             ObservableList<HBox> el = FXCollections.observableList(elementsArrayList);
             elementsList.setItems(el);
