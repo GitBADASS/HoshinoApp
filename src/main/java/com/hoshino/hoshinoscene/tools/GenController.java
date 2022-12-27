@@ -1,9 +1,15 @@
 package com.hoshino.hoshinoscene.tools;
 
 import javafx.animation.FadeTransition;
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -13,14 +19,15 @@ import java.util.*;
 
 //TODO:需要增添对中英文内容的判断（使用正则表达式
 public class GenController implements Initializable {
-    public Button clearEn;//英文清空框
-    public Button clearCn;//中文清空框
     public Button save;//保存按钮
     public TextArea description;//学习库描述
     public TextField name;//学习库名称
     public VBox root;//最底部VBox
     public Label warnText;//警告文本
     public Button clearName;//清空名称输入框按钮
+    public Button clearDescription;
+    public Button addElement;
+    public ListView<HBox> elementsList;
 
     //将所有文本框放入
     List<TextInputControl> textInputList = new ArrayList<>();
@@ -28,8 +35,20 @@ public class GenController implements Initializable {
     //实现方法
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<HBox> elementsArrayList = new ArrayList<>();
+        addElement.setOnAction(e->{
+            HBox h = new HBox();
+            h.setStyle("-fx-background-color: gray; -fx-pref-width: 300px; -fx-pref-height: 20px");
+            Label text = new Label();
+            text.setText("测试");//TODO:这个到时候自己写一个HBox的子类在这里用，该子类特点：含有两个 TextFiled、一个 checkbox，然后ID待定
+            h.getChildren().add(text);
+            elementsArrayList.add(h);
+            ObservableList<HBox> el = FXCollections.observableList(elementsArrayList);
+            elementsList.setItems(el);
+        });
         //清空方法
         addClearFun(name, clearName);//名称输入框清空
+        addClearFun(description, clearDescription);//描述输入框清空
         deleteEmpty(name);
         deleteEmpty(description);
         //TODO:需要增添对中英文内容的判断（使用正则表达式
@@ -173,4 +192,7 @@ public class GenController implements Initializable {
             e.setText("");
         }
     }
+
+    //替换场景方法
+
 }
