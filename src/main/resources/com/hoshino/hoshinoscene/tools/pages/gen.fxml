@@ -15,36 +15,6 @@
             <children>
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <Label styleClass="normal" text="填写英语">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                      <TextField fx:id="en" prefHeight="25.0" styleClass="wordsInput" />
-                     <Button fx:id="clearEn" mnemonicParsing="false" prefWidth="0.0" styleClass="settingsBtn" text="x">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Button>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Label styleClass="normal" text="填写中文">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                      <TextField fx:id="cn" prefHeight="25.0" styleClass="wordsInput" />
-                     <Button fx:id="clearCn" mnemonicParsing="false" styleClass="settingsBtn" text="x">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Button>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
                      <Label styleClass="normal" text="库名称">
                         <HBox.margin>
                            <Insets />
@@ -55,7 +25,7 @@
                            <Insets />
                         </HBox.margin>
                      </TextField>
-                     <Button fx:id="clearCn1" mnemonicParsing="false" styleClass="settingsBtn" text="x" />
+                     <Button fx:id="clearName" mnemonicParsing="false" styleClass="settingsBtn" text="x" />
                   </children>
                </HBox>
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -65,11 +35,25 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextArea fx:id="description" prefHeight="200.0" prefWidth="200.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
+                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="161.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </TextArea>
+                     <VBox prefHeight="200.0" prefWidth="37.0" style="-fx-border-color: #c2c2c2; -fx-border-width: 1 1 1 0;">
+                        <children>
+                           <Button fx:id="clearName1" mnemonicParsing="false" styleClass="settingsBtn" text="x" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="100.0" prefWidth="255.0">
+                        <children>
+                           <VBox prefHeight="160.0" prefWidth="100.0" />
+                        </children>
+                     </VBox>
                   </children>
                </HBox>
             </children>

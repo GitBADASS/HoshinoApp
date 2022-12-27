@@ -13,15 +13,14 @@ import java.util.*;
 
 //TODO:需要增添对中英文内容的判断（使用正则表达式
 public class GenController implements Initializable {
-    public TextField en;//英文输入框
-    public TextField cn;//中文输入框
     public Button clearEn;//英文清空框
     public Button clearCn;//中文清空框
     public Button save;//保存按钮
     public TextArea description;//学习库描述
     public TextField name;//学习库名称
     public VBox root;//最底部VBox
-    public Label warnText;
+    public Label warnText;//警告文本
+    public Button clearName;//清空名称输入框按钮
 
     //将所有文本框放入
     List<TextInputControl> textInputList = new ArrayList<>();
@@ -30,17 +29,12 @@ public class GenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //清空方法
-        addClearFun(en, clearEn);//英文输入框清空
-        addClearFun(cn, clearCn);//中文输入框清空
-        deleteEmpty(en);
-        deleteEmpty(cn);
+        addClearFun(name, clearName);//名称输入框清空
         deleteEmpty(name);
         deleteEmpty(description);
         //TODO:需要增添对中英文内容的判断（使用正则表达式
 
         //检查是否最基本地合格：
-        solve(en);
-        solve(cn);
         solve(name);
         solve(description);
 
@@ -66,10 +60,6 @@ public class GenController implements Initializable {
         save.setOnMousePressed(e->{
             //为添加单词学习库做准备
             HashMap<String, String> h = new HashMap<>();//创建哈希映射
-            //判断内容是否合格
-            if(!unconformable(en) && !unconformable(cn)) {
-                h.put(en.getText(), cn.getText()); //TODO:这里要根据后期需求整改（需要它添加多个中英文映射而不是只一个
-            }
             //创建单词学习库对象
             WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), h);
             //判断名称与描述是否符合规范
@@ -78,8 +68,6 @@ public class GenController implements Initializable {
                 if(Storage.save(wh)){
                     System.out.println("文件成功保存！");//控制台输出语句
                     //将所有输入框对象放入集合并清空（下方ESC退出并不会清空
-                    textInputList.add(en);//英文输入框
-                    textInputList.add(cn);//中文输入框
                     textInputList.add(name);//名称
                     textInputList.add(description);//描述
                     clear(textInputList);//清空
@@ -87,17 +75,20 @@ public class GenController implements Initializable {
                     stage.close();//退出
                 }
             } else {
-                animationIn.play();//显示警告文本
-                //设置延时
-                Timer t = new Timer();
-                //延时任务
-                TimerTask tt = new TimerTask() {
-                    @Override
-                    public void run() {
-                        animationOut.play();
-                    }
-                };
-                t.schedule(tt, 3000);//3s后执行
+                //检查按钮触发的时候控件不透明度是否为零，防止出现动画乱抽
+                if(warnText.getOpacity()==0) {
+                    animationIn.play();//显示警告文本
+                    //设置延时
+                    Timer t = new Timer();
+                    //延时任务
+                    TimerTask tt = new TimerTask() {
+                        @Override
+                        public void run() {
+                            animationOut.play();
+                        }
+                    };
+                    t.schedule(tt, 3000);//3s后执行
+                }
             }
         });
 
