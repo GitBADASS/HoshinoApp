@@ -1,7 +1,6 @@
 package com.hoshino.hoshinoscene.tools;
 
 import javafx.geometry.Pos;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 

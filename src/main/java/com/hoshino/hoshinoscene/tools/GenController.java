@@ -37,6 +37,8 @@ public class GenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<HBox> elementsArrayList = new ArrayList<>();
         addElement.setOnAction(e->{
+            //TODO:增加对选中元素的处理（比如“-”按钮按下时删除选中元素
+            //TODO:待新增按钮：“全选”和“全不选”
             WordsInput h = new WordsInput();
             elementsArrayList.add(h);
             ObservableList<HBox> el = FXCollections.observableList(elementsArrayList);
