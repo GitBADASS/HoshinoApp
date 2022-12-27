@@ -37,7 +37,6 @@ public class GenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<HBox> elementsArrayList = new ArrayList<>();
         addElement.setOnAction(e->{
-            //TODO:这个到时候自己写一个HBox的子类在这里用，该子类特点：含有两个 TextFiled、一个 checkbox，然后ID待定
             WordsInput h = new WordsInput();
             elementsArrayList.add(h);
             ObservableList<HBox> el = FXCollections.observableList(elementsArrayList);
