@@ -27,7 +27,8 @@ public class GenController implements Initializable {
     public Button clearName;//清空名称输入框按钮
     public Button clearDescription;
     public Button addElement;
-    public ListView<HBox> elementsList;
+    public ListView<WordsInput> elementsList;
+    public Button deleteElement;
 
     //将所有文本框放入
     List<TextInputControl> textInputList = new ArrayList<>();
@@ -35,14 +36,44 @@ public class GenController implements Initializable {
     //实现方法
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<HBox> elementsArrayList = new ArrayList<>();
+        List<WordsInput> elementsArrayList = new ArrayList<>();
         addElement.setOnAction(e->{
             //TODO:增加对选中元素的处理（比如“-”按钮按下时删除选中元素
-            //TODO:待新增按钮：“全选”和“全不选”
-            WordsInput h = new WordsInput();
-            elementsArrayList.add(h);
-            ObservableList<HBox> el = FXCollections.observableList(elementsArrayList);
-            elementsList.setItems(el);
+            //TODO:待新增功能： “清空“ 按钮、ListView 多选 功能
+            //此处解释：判断如果上一个元素内容为空，则不继续添加
+            if(elementsList.getItems().size() == 0) {
+                //创建ListView的元素——WordsInput类的对象
+                WordsInput h = new WordsInput();
+                //将它放到元素ArrayList里
+                elementsArrayList.add(h);
+                //将ArrayList放到ObservableList里
+                ObservableList<WordsInput> el = FXCollections.observableList(elementsArrayList);
+                //将el放到ListView中
+                elementsList.setItems(el);
+                //默认聚焦新创建的文本框
+                h.cn.requestFocus();
+                //默认选中最后一个
+                elementsList.getSelectionModel().select(elementsArrayList.size() - 1);
+            } else if(elementsList.getItems().get(elementsArrayList.size()-1).cn.getLength() != 0 || elementsList.getItems().get(elementsArrayList.size()-1).en.getLength() != 0) {
+                //创建ListView的元素——WordsInput类的对象
+                WordsInput h = new WordsInput();
+                //将它放到元素ArrayList里
+                elementsArrayList.add(h);
+                //将ArrayList放到ObservableList里
+                ObservableList<WordsInput> el = FXCollections.observableList(elementsArrayList);
+                //将el放到ListView中
+                elementsList.setItems(el);
+                //默认聚焦新创建的文本框
+                h.cn.requestFocus();
+                //默认选中最后一个
+                elementsList.getSelectionModel().select(elementsArrayList.size() - 1);
+            }
+        });
+        deleteElement.setOnAction(e->{
+            int index = elementsList.getSelectionModel().getSelectedIndex();
+            if(elementsArrayList.size() != 0) {
+                elementsList.getItems().remove(index);
+            }
         });
         //清空方法
         addClearFun(name, clearName);//名称输入框清空
@@ -94,6 +125,7 @@ public class GenController implements Initializable {
             } else {
                 //检查按钮触发的时候控件不透明度是否为零，防止出现动画乱抽
                 if(warnText.getOpacity()==0) {
+                    warnText.setText("保存失败，请检查书写是否规范");
                     animationIn.play();//显示警告文本
                     //设置延时
                     Timer t = new Timer();
@@ -191,6 +223,7 @@ public class GenController implements Initializable {
         }
     }
 
-    //替换场景方法
+    //增添内容到ListView
+
 
 }
