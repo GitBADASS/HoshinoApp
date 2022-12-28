@@ -10,7 +10,7 @@
    <fx:define>
    </fx:define>
    <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
-      <Button text="创建库" fx:id="createWarehouse" />
+      <Button text="创建库" fx:id="createWarehouse" styleClass="settingsBtn"/>
    </HBox>
    <children></children>
 </VBox>
