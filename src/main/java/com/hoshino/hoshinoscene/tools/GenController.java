@@ -1,15 +1,11 @@
 package com.hoshino.hoshinoscene.tools;
 
 import javafx.animation.FadeTransition;
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -29,6 +25,7 @@ public class GenController implements Initializable {
     public Button addElement;
     public ListView<WordsInput> elementsList;
     public Button deleteElement;
+    public Button cancel;//取消按钮
 
     //将所有文本框放入
     List<TextInputControl> textInputList = new ArrayList<>();
@@ -41,7 +38,7 @@ public class GenController implements Initializable {
             //TODO:增加对选中元素的处理（比如“-”按钮按下时删除选中元素
             //TODO:待新增功能： “清空“ 按钮、ListView 多选 功能
             //此处解释：判断如果上一个元素内容为空，则不继续添加
-            if(elementsList.getItems().size() == 0) {
+            if(elementsList.getItems().size() == 0 || elementsList.getItems().get(elementsArrayList.size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsArrayList.size()-1).en.getLength() != 0) {
                 //创建ListView的元素——WordsInput类的对象
                 WordsInput h = new WordsInput();
                 //将它放到元素ArrayList里
@@ -54,19 +51,12 @@ public class GenController implements Initializable {
                 h.cn.requestFocus();
                 //默认选中最后一个
                 elementsList.getSelectionModel().select(elementsArrayList.size() - 1);
-            } else if(elementsList.getItems().get(elementsArrayList.size()-1).cn.getLength() != 0 || elementsList.getItems().get(elementsArrayList.size()-1).en.getLength() != 0) {
-                //创建ListView的元素——WordsInput类的对象
-                WordsInput h = new WordsInput();
-                //将它放到元素ArrayList里
-                elementsArrayList.add(h);
-                //将ArrayList放到ObservableList里
-                ObservableList<WordsInput> el = FXCollections.observableList(elementsArrayList);
-                //将el放到ListView中
-                elementsList.setItems(el);
-                //默认聚焦新创建的文本框
-                h.cn.requestFocus();
-                //默认选中最后一个
-                elementsList.getSelectionModel().select(elementsArrayList.size() - 1);
+                //防止一直输入空格
+                deleteSpace(h.cn);
+                deleteSpace(h.en);
+                //放入输入框集合以便后期清空
+                textInputList.add(h.cn);
+                textInputList.add(h.en);
             }
         });
         deleteElement.setOnAction(e->{
@@ -75,11 +65,12 @@ public class GenController implements Initializable {
                 elementsList.getItems().remove(index);
             }
         });
+
         //清空方法
         addClearFun(name, clearName);//名称输入框清空
         addClearFun(description, clearDescription);//描述输入框清空
-        deleteEmpty(name);
-        deleteEmpty(description);
+        deleteSpace(name);
+        deleteSpace(description);
         //TODO:需要增添对中英文内容的判断（使用正则表达式
 
         //检查是否最基本地合格：
@@ -92,6 +83,8 @@ public class GenController implements Initializable {
 
     //保存退出的实现
     public void init(Stage stage) {
+        //取消按钮的实现
+        cancel.setOnAction(e->stage.close());
         //添加动画 TODO:后期考虑是否单独创建一个类继承自 FadeTransition 用于添加动画
         //淡出：
         FadeTransition animationOut = new FadeTransition(Duration.millis(500), warnText);
@@ -118,7 +111,7 @@ public class GenController implements Initializable {
                     //将所有输入框对象放入集合并清空（下方ESC退出并不会清空
                     textInputList.add(name);//名称
                     textInputList.add(description);//描述
-                    clear(textInputList);//清空
+                    clear(textInputList);//清空所有输入框
 
                     stage.close();//退出
                 }
@@ -157,7 +150,7 @@ public class GenController implements Initializable {
     * */
 
     //防止无限制使用空格，这里添加一个判断是否为空的方法
-    private void deleteEmpty(TextInputControl t) {
+    private void deleteSpace(TextInputControl t) {
         //添加文本值改变事件
         //如果文本值等于 " " 则：
         t.textProperty().addListener((observableValue, s, t1)-> {

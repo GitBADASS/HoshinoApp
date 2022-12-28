@@ -21,7 +21,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextField fx:id="name" prefHeight="25.0" styleClass="wordsInput">
+                     <TextField fx:id="name" prefHeight="25.0" prefWidth="210.0" styleClass="wordsInput">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
@@ -36,7 +36,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="161.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
+                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
@@ -54,10 +54,11 @@
                         <children>
                            <VBox prefHeight="160.0" prefWidth="100.0" style="-fx-border-color: #c2c2c2;">
                               <children>
-                                 <HBox prefHeight="25.0" prefWidth="100.0" style="-fx-border-color: #e9e9e9;">
+                                 <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="100.0" style="-fx-border-color: #e9e9e9;">
                                     <children>
                                        <Button fx:id="addElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="+" />
                                        <Button fx:id="deleteElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="-" />
+                                       <Label style="-fx-padding: 4;" text="单词录入" />
                                     </children>
                                  </HBox>
                                  <ListView fx:id="elementsList" prefHeight="200.0" prefWidth="200.0" />
@@ -72,7 +73,7 @@
             <children>
                <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                   <children>
-                     <Button mnemonicParsing="false" prefWidth="65.0" styleClass="settingsBtn" text="取消">
+                     <Button mnemonicParsing="false" prefWidth="65.0" styleClass="settingsBtn" text="取消" fx:id="cancel">
                         <HBox.margin>
                            <Insets left="5.0" right="5.0" />
                         </HBox.margin></Button>
