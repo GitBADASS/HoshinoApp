@@ -58,7 +58,7 @@
                                     <children>
                                        <Button fx:id="addElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="+" />
                                        <Button fx:id="deleteElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="-" />
-                                       <Label style="-fx-padding: 4;" text="单词录入" />
+                                       <Label style="-fx-padding: 4;" text="单词录入 （左中右英" />
                                     </children>
                                  </HBox>
                                  <ListView fx:id="elementsList" prefHeight="200.0" prefWidth="200.0" />

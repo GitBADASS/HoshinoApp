@@ -100,11 +100,22 @@ public class GenController implements Initializable {
         //添加点击事件监听
         save.setOnMousePressed(e->{
             //为添加单词学习库做准备
-            HashMap<String, String> h = new HashMap<>();//创建哈希映射
+            HashMap<String, String> words = new HashMap<>();//创建哈希映射
+            if(elementsList.getItems().size() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0) {
+                System.out.println("[√]单词映射符合条件");
+                //保存
+                for(WordsInput w : elementsList.getItems()) {
+                    words.put(w.en.getText(), w.cn.getText());
+                }
+            }else if(elementsList.getItems().size() == 0) {
+                System.out.println("还没有添加任何单词映射");
+            } else {
+                System.out.println("单词映射填写不全");
+            }
             //创建单词学习库对象
-            WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), h);
+            WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), words);
             //判断名称与描述是否符合规范
-            if(!unconformable(name) && !unconformable(description) && h.size() != 0) {
+            if(!unconformable(name) && !unconformable(description) && words.size() != 0) {
                 //如果保存成功
                 if(Storage.save(wh)){
                     System.out.println("文件成功保存！");//控制台输出语句
