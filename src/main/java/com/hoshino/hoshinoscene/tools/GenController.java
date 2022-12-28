@@ -104,8 +104,8 @@ public class GenController implements Initializable {
             //创建单词学习库对象
             WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), words);
             //判断名称与描述是否符合规范
-            if(!unconformable(name) && !unconformable(description)) {
-                if(elementsList.getItems().size() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0) {
+            if(!unconformable(name) && !unconformable(description) && elementsList.getItems().size() != 0) {
+                if(elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0) {
                     System.out.println("[√]单词映射符合条件");
                     //保存
                     for(WordsInput w : elementsList.getItems()) {
@@ -123,7 +123,6 @@ public class GenController implements Initializable {
                     textInputList.add(name);//名称
                     textInputList.add(description);//描述
                     clear(textInputList);//清空所有输入框
-
                     stage.close();//退出
                 }
             } else {
