@@ -104,17 +104,11 @@ public class GenController implements Initializable {
             //创建单词学习库对象
             WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), words);
             //判断名称与描述是否符合规范
-            if(!unconformable(name) && !unconformable(description) && elementsList.getItems().size() != 0) {
-                if(elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0) {
-                    System.out.println("[√]单词映射符合条件");
-                    //保存
-                    for(WordsInput w : elementsList.getItems()) {
-                        words.put(w.en.getText(), w.cn.getText());
-                    }
-                }else if(elementsList.getItems().size() == 0) {
-                    System.out.println("还没有添加任何单词映射");
-                } else {
-                    System.out.println("单词映射填写不全");
+            if(!unconformable(name) && !unconformable(description) && elementsList.getItems().size() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0) {
+                System.out.println("[√]单词映射符合条件");
+                //保存
+                for(WordsInput w : elementsList.getItems()) {
+                    words.put(w.en.getText(), w.cn.getText());
                 }
                 //如果保存成功
                 if(Storage.save(wh) && words.size() != 0){
