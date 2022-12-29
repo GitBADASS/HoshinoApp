@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="root" minHeight="9.0" minWidth="300.0" prefHeight="534.0" prefWidth="400.0" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
+<VBox fx:id="root" minHeight="9.0" minWidth="300.0" prefHeight="534.0" prefWidth="400.0" style="-fx-background-color: white;" stylesheets="@../../stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.tools.GenController">
    <VBox prefWidth="400.0" VBox.vgrow="ALWAYS">
       <children>
          <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
@@ -36,14 +36,14 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" style="-fx-control-inner-background: #f4f4f4;" styleClass="scroll-bar" wrapText="true">
+                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" style="-fx-control-inner-background: white;" styleClass="scroll-bar" wrapText="true">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </TextArea>
-                     <VBox prefHeight="200.0" prefWidth="37.0" style="-fx-border-color: #c2c2c2; -fx-border-width: 1 1 1 0;">
+                     <VBox prefHeight="200.0" prefWidth="37.0">
                         <children>
-                           <Button fx:id="clearDescription" mnemonicParsing="false" styleClass="settingsBtn" text="x" />
+                           <Button fx:id="clearDescription" mnemonicParsing="false" prefHeight="98.0" prefWidth="37.0" styleClass="settingsBtn" text="x" />
                         </children>
                      </VBox>
                   </children>
@@ -52,9 +52,9 @@
                   <children>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="305.0">
                         <children>
-                           <VBox prefHeight="160.0" prefWidth="100.0" style="-fx-border-color: #c2c2c2;">
+                           <VBox prefHeight="160.0" prefWidth="100.0">
                               <children>
-                                 <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="100.0" style="-fx-border-color: #e9e9e9;">
+                                 <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="100.0">
                                     <children>
                                        <Button fx:id="addElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="+" />
                                        <Button fx:id="deleteElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="-" />
@@ -73,7 +73,7 @@
             <children>
                <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                   <children>
-                     <Button mnemonicParsing="false" prefWidth="65.0" styleClass="settingsBtn" text="取消" fx:id="cancel">
+                     <Button fx:id="cancel" mnemonicParsing="false" prefWidth="65.0" styleClass="settingsBtn" text="取消">
                         <HBox.margin>
                            <Insets left="5.0" right="5.0" />
                         </HBox.margin></Button>
