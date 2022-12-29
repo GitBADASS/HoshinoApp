@@ -36,7 +36,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" style="-fx-control-inner-background: white;" styleClass="scroll-bar" wrapText="true">
+                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" style="-fx-control-inner-background: white;" wrapText="true">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
