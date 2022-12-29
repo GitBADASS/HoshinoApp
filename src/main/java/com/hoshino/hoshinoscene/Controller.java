@@ -40,11 +40,16 @@ public class Controller implements Initializable{
 
     }
 
-    public void addExitListner(Stage stage) {
+    public void addExitListener(Stage stage) {
         root.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode()== KeyCode.ESCAPE) {
                 stage.close();
             }
         });
+    }
+
+    //加载文件并展示
+    public void load() {
+
     }
 }

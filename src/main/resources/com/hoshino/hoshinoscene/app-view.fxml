@@ -4,12 +4,14 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import com.hoshino.hoshinoscene.tools.WarehouseInVBox?>
 <VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css"
       xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.hoshino.hoshinoscene.Controller">
    <fx:define>
    </fx:define>
    <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+      <WarehouseInVBox></WarehouseInVBox>
       <Button text="创建库" fx:id="createWarehouse" styleClass="settingsBtn"/>
    </HBox>
    <children></children>

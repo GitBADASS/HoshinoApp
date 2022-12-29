@@ -38,7 +38,7 @@ public class HoshinoApp extends Application {
 
         //实现Controller方法
         Controller c = fxmlLoader.getController();//获得对应Controller对象
-        c.addExitListner(stage);
+        c.addExitListener(stage);
 
         //显示场景
         stage.show();
