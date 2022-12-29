@@ -121,6 +121,21 @@ public class GenController implements Initializable {
                     //清空单词框
                     elementsList.getItems().clear();
                     stage.close();//退出
+                } else {
+                    if(warnText.getOpacity()==0) {
+                        warnText.setText("文件已存在");
+                        animationIn.play();//显示警告文本
+                        //设置延时
+                        Timer t = new Timer();
+                        //延时任务
+                        TimerTask tt = new TimerTask() {
+                            @Override
+                            public void run() {
+                                animationOut.play();
+                            }
+                        };
+                        t.schedule(tt, 3000);//3s后执行
+                    }
                 }
             } else {
                 //检查按钮触发的时候控件不透明度是否为零，防止出现动画乱抽
