@@ -54,11 +54,16 @@
                         <children>
                            <VBox prefHeight="160.0" prefWidth="100.0">
                               <children>
-                                 <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="100.0">
+                                 <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9e9e9;">
                                     <children>
                                        <Button fx:id="addElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="+" />
                                        <Button fx:id="deleteElement" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="-" />
-                                       <Label style="-fx-padding: 4;" text="单词录入 （左中右英" />
+                                       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="225.0">
+                                          <children>
+                                             <Label style="-fx-padding: 4;" text="单词录入 （左中右英" />
+                                             <Button fx:id="clearElements" mnemonicParsing="false" prefWidth="40.0" styleClass="littleBtn" text="x" />
+                                          </children>
+                                       </HBox>
                                     </children>
                                  </HBox>
                                  <ListView fx:id="elementsList" prefHeight="200.0" prefWidth="200.0" />

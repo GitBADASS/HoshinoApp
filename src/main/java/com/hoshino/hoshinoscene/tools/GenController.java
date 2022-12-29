@@ -26,6 +26,7 @@ public class GenController implements Initializable {
     public ListView<WordsInput> elementsList;
     public Button deleteElement;
     public Button cancel;//取消按钮
+    public Button clearElements;
 
     //将所有文本框放入
     List<TextInputControl> textInputList = new ArrayList<>();
@@ -84,7 +85,17 @@ public class GenController implements Initializable {
     //保存退出的实现
     public void init(Stage stage) {
         //取消按钮的实现
-        cancel.setOnAction(e->stage.close());
+        cancel.setOnAction(e->{
+            stage.close();
+            System.out.println("退出成功");//控制台输出语句
+            //将所有输入框对象放入集合并清空（下方ESC退出并不会清空
+            textInputList.add(name);//名称
+            textInputList.add(description);//描述
+            clear(textInputList);//清空所有输入框
+            //清空单词框
+            elementsList.getItems().clear();
+            System.out.println("清空成功");//控制台输出语句
+        });
         //添加动画 TODO:后期考虑是否单独创建一个类继承自 FadeTransition 用于添加动画
         //淡出：
         FadeTransition animationOut = new FadeTransition(Duration.millis(500), warnText);
@@ -97,6 +108,11 @@ public class GenController implements Initializable {
         animationIn.setToValue(1);
         animationIn.setAutoReverse(true);
 
+        //清空单词录入框
+        clearElements.setOnAction(e->{
+            elementsList.getItems().clear();
+            System.out.println("单词成功清空");
+        });
         //添加点击事件监听
         save.setOnMousePressed(e->{
             //为添加单词学习库做准备
