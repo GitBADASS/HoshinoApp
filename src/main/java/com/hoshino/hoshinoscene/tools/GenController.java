@@ -103,8 +103,9 @@ public class GenController implements Initializable {
             HashMap<String, String> words = new HashMap<>();//创建哈希映射
             //创建单词学习库对象
             WordsWarehouse wh = new WordsWarehouse(name.getText(), description.getText(), words);
-            //判断名称与描述是否符合规范
-            if(!unconformable(name) && !unconformable(description) && elementsList.getItems().size() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0) {
+            //判断是否符合规范
+            boolean canBeSaved = !unconformable(name) && !unconformable(description) && elementsList.getItems().size() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).cn.getLength() != 0 && elementsList.getItems().get(elementsList.getItems().size()-1).en.getLength() != 0;
+            if(canBeSaved) {
                 System.out.println("[√]单词映射符合条件");
                 //保存
                 for(WordsInput w : elementsList.getItems()) {
@@ -117,6 +118,8 @@ public class GenController implements Initializable {
                     textInputList.add(name);//名称
                     textInputList.add(description);//描述
                     clear(textInputList);//清空所有输入框
+                    //清空单词框
+                    elementsList.getItems().clear();
                     stage.close();//退出
                 }
             } else {
