@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
@@ -62,9 +63,8 @@ public class Controller implements Initializable{
         assert list != null;
         for (File file : list) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
-            //String jContent = JSONObject.toJSONString(content);
-            //WordsWarehouse wordsWarehouse = JSON.parseObject(jContent, WordsWarehouse.class);
-            //System.out.println(wordsWarehouse);
+            WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);
+            System.out.println(wordsWarehouse);
         }
     }
 
