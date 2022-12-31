@@ -18,8 +18,8 @@ If possible, web app or mobile app will come later.
 
 - [x] complete the function of adding a words warehouse
 - [x] complete the function of saving a words warehouse in JSON files and showing it
-- [ ] complete the function of setting a words warehouse
-- [ ] complete the function of wordspracticing
+- [x] complete the function of setting a words warehouse
+- [ ] complete the function of words practicing
 
 
 
