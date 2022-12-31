@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css"
-      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.hoshino.hoshinoscene.Controller">
+<VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.Controller">
    <fx:define>
    </fx:define>
-   <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" fx:id="content">
-      <Button text="创建库" fx:id="createWarehouse" styleClass="settingsBtn"/>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button fx:id="createWarehouse" styleClass="settingsBtn" text="创建库" />
+         <HBox fx:id="content" HBox.hgrow="ALWAYS" />
+      </children>
    </HBox>
 </VBox>

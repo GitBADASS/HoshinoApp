@@ -1,7 +1,6 @@
 package com.hoshino.hoshinoscene;
 
 import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONObject;
 import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
@@ -38,6 +37,13 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        root.setOnMouseEntered(e-> {
+            try {
+                load();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         //创建新窗口
         createWarehouse.setOnMousePressed(e->{
             //检查新窗口是否已存在，若为否，则新建，若为是，则将它拽到前面
@@ -48,10 +54,7 @@ public class Controller implements Initializable{
             }
         });
         try {
-            ArrayList<WordsWarehouse> whList = this.load();
-            for (WordsWarehouse wh : whList) {
-                content.getChildren().add(new WarehouseStyle(wh));
-            }
+            this.load();//加载
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -66,19 +69,25 @@ public class Controller implements Initializable{
     }
 
     //加载文件并展示
-    public ArrayList<WordsWarehouse> load() throws IOException {
-        ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();
+    public void load() throws IOException {
+        ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();//用于存放扫描出的该类
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
-        File[] FileList = jsons.listFiles();//获取库文件夹下所有文件
-        assert FileList != null;
-        for (File file : FileList) {
+        File[] fileList = jsons.listFiles();//获取库文件夹下所有文件
+        assert fileList != null;
+        for (File file : fileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
             WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);
             System.out.println("找到"+wordsWarehouse);
             warehouseList.add(wordsWarehouse);
         }
-        return warehouseList;
+        //率先清空，防止反复添加
+        content.getChildren().clear();
+        for (WordsWarehouse wh : warehouseList) {
+            System.out.println("展示"+wh);
+            content.getChildren().add(new WarehouseStyle(wh));//展示
+        }
+        System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
     }
 
 /*    public static void main(String[] args) throws IOException {

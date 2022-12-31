@@ -1,6 +1,5 @@
 package com.hoshino.hoshinoscene.custom;
 
-import com.alibaba.fastjson2.JSONObject;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -10,7 +9,7 @@ import javafx.scene.layout.VBox;
 public class WarehouseStyle extends VBox {
     String title;
     String description;
-    public WarehouseStyle(String title, String description) {
+/*    public WarehouseStyle(String title, String description) {
         this.title = title;
         this.description = description;
         Label titleText = new Label(title);
@@ -23,7 +22,7 @@ public class WarehouseStyle extends VBox {
         setOnMousePressed(e->test.setText("NONONONONO"));
         //待补充...
         //...
-    }
+    }*/
 
     //传入一个WordsWarehouse的对象
     public WarehouseStyle(WordsWarehouse wh) {
@@ -39,7 +38,7 @@ public class WarehouseStyle extends VBox {
     }
 
     //更改方法
-    public static WarehouseStyle change(String newName, String newDescription, WarehouseStyle whs) {
+    /*public static WarehouseStyle change(String newName, String newDescription, WarehouseStyle whs) {
         if(newName.equals("")||newName.equals(" ")||newName.equals(whs.title)||newDescription.equals("")||newDescription.equals(" ")||newDescription.equals(whs.description)) {
             return whs;
         } else {
@@ -47,5 +46,5 @@ public class WarehouseStyle extends VBox {
             //...
             return new WarehouseStyle(newName, newDescription);
         }
-    }
+    }*/
 }

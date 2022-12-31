@@ -1,8 +1,10 @@
 package com.hoshino.hoshinoscene.tools;
 
+import com.hoshino.hoshinoscene.Controller;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
@@ -10,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -137,6 +140,7 @@ public class GenController implements Initializable {
                     //清空单词框
                     elementsList.getItems().clear();
                     stage.close();//退出
+                    Controller c = new FXMLLoader(GenWarehouse.class.getResource("pages/gen.fxml")).getController();
                 } else {
                     if(warnText.getOpacity()==0) {
                         warnText.setText("文件已存在");
