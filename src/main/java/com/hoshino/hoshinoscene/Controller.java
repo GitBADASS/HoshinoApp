@@ -68,7 +68,7 @@ public class Controller implements Initializable{
         }
     }
 
-    public static void main(String[] args) throws IOException {
+/*    public static void main(String[] args) throws IOException {
         load();
-    }
+    }*/
 }
