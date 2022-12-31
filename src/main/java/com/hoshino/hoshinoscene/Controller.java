@@ -2,6 +2,7 @@ package com.hoshino.hoshinoscene;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
+import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.fxml.Initializable;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
@@ -44,7 +45,14 @@ public class Controller implements Initializable{
                 gen.toFront();
             }
         });
-
+        try {
+            ArrayList<WordsWarehouse> whList = this.load();
+            for (WordsWarehouse wh : whList) {
+                root.getChildren().add(new WarehouseStyle(wh));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void addExitListener(Stage stage) {
@@ -56,7 +64,8 @@ public class Controller implements Initializable{
     }
 
     //加载文件并展示
-    public static void load() throws IOException {
+    public ArrayList<WordsWarehouse> load() throws IOException {
+        ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
         File[] FileList = jsons.listFiles();//获取库文件夹下所有文件
@@ -64,8 +73,10 @@ public class Controller implements Initializable{
         for (File file : FileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
             WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);
-            System.out.println(wordsWarehouse);
+            System.out.println("找到"+wordsWarehouse);
+            warehouseList.add(wordsWarehouse);
         }
+        return warehouseList;
     }
 
 /*    public static void main(String[] args) throws IOException {
