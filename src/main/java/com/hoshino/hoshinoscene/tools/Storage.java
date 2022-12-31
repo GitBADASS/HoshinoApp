@@ -1,6 +1,7 @@
 package com.hoshino.hoshinoscene.tools;
 
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 
 import java.io.File;
@@ -13,16 +14,16 @@ import java.nio.charset.StandardCharsets;
 public class Storage {
 
     //创建一个JSON对象用于存放学习库信息
-    static JSONObject warehouse = new JSONObject();
+    //static JSONObject warehouse = new JSONObject();
 
     //保存方法，传入一个要保存的学习库类，此方法为工具方法，所以设为静态
     public static boolean save(WordsWarehouse wh) {
         //判断是否添加成功
         boolean flag = false;
         //将该学习库信息存储进JSON对象中
-        warehouse.put(wh.getName(), wh);
+        //warehouse.put("warehouse", wh);
         //将该JSON对象转为字符串以便后面写入
-        String s = warehouse.toJSONString();
+        String s = JSON.toJSONString(wh);
         //创建JSON文件并写入
         try {
             File dir = new File("json\\warehouses");

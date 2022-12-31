@@ -59,9 +59,9 @@ public class Controller implements Initializable{
     public static void load() throws IOException {
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
-        File[] list = jsons.listFiles();//获取库文件夹下所有文件
-        assert list != null;
-        for (File file : list) {
+        File[] FileList = jsons.listFiles();//获取库文件夹下所有文件
+        assert FileList != null;
+        for (File file : FileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
             WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);
             System.out.println(wordsWarehouse);
