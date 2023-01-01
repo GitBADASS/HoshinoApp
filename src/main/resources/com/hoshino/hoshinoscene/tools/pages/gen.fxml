@@ -106,7 +106,7 @@
          </HBox>
          <VBox alignment="CENTER" prefHeight="60.0" prefWidth="400.0">
             <children>
-               <Label fx:id="warnText" alignment="CENTER" prefHeight="60.0" prefWidth="400.0" styleClass="warn" text="保存失败，请检查书写是否规范" />
+               <Label fx:id="warnText" alignment="CENTER" prefHeight="60.0" prefWidth="400.0" styleClass="warn" text="保存失败，请检查书写是否规范" style="-fx-text-fill: #cc0000"/>
             </children>
          </VBox>
       </children>
