@@ -7,6 +7,7 @@ import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -22,7 +23,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable{
     public VBox root;
     public Button createWarehouse;
-    public HBox content;
+    public FlowPane content;
     /*
     * 要求：点击创建库按钮进入创建学习库窗口
     * 我们应该提前先创建好一个窗口，然后在触发点击事件的时候调用show()方法，否则会出现多开bug

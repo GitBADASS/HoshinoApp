@@ -35,6 +35,7 @@ public class WarehouseStyle extends VBox {
         getChildren().add(titleText);
         getChildren().add(descriptionText);
         getChildren().add(test);
+        this.setStyle("-fx-background-color: #f3f3f3;-fx-pref-width: 100; -fx-pref-height: 60;");
     }
 
     //更改方法

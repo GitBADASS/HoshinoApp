@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -9,8 +10,8 @@
    </fx:define>
    <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <children>
-         <HBox fx:id="content" HBox.hgrow="ALWAYS" />
-         <VBox prefHeight="200.0" prefWidth="66.0" style="-fx-background-color: #f3f3f3;">
+         <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" style="-fx-hgap: 10; -fx-vgap: 10;" HBox.hgrow="ALWAYS" />
+         <VBox prefHeight="200.0" prefWidth="66.0" style="-fx-background-color: #f9f9f9;">
             <children>
                <Button fx:id="createWarehouse" styleClass="settingsBtn" text="创建库" />
             </children>
