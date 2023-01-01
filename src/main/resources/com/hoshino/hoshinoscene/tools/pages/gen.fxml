@@ -21,12 +21,12 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextField fx:id="name" prefHeight="25.0" prefWidth="210.0" styleClass="wordsInput">
+                     <TextField fx:id="name" prefHeight="26.0" prefWidth="210.0" styleClass="wordsInput">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </TextField>
-                     <Button fx:id="clearName" mnemonicParsing="false" styleClass="settingsBtn" text="x" />
+                     <Button fx:id="clearName" mnemonicParsing="false" prefHeight="24.0" styleClass="settingsBtn" text="x" />
                   </children>
                </HBox>
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -36,7 +36,7 @@
                            <Insets />
                         </HBox.margin>
                      </Label>
-                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" style="-fx-control-inner-background: white;" wrapText="true">
+                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" wrapText="true">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
