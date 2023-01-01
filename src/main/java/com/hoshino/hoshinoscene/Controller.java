@@ -24,6 +24,7 @@ public class Controller implements Initializable{
     public VBox root;
     public Button createWarehouse;
     public FlowPane content;
+    public Button flush;
     /*
     * 要求：点击创建库按钮进入创建学习库窗口
     * 我们应该提前先创建好一个窗口，然后在触发点击事件的时候调用show()方法，否则会出现多开bug
@@ -39,6 +40,14 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         root.setOnMouseEntered(e-> {
+            try {
+                load();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        //刷新
+        flush.setOnAction(e-> {
             try {
                 load();
             } catch (IOException ex) {
