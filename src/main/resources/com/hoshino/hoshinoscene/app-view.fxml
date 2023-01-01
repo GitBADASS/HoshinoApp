@@ -10,7 +10,7 @@
    </fx:define>
    <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <children>
-         <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" style="-fx-hgap: 10; -fx-vgap: 10;" HBox.hgrow="ALWAYS" />
+         <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" style="-fx-hgap: 5; -fx-vgap: 5; -fx-padding: 5;" HBox.hgrow="ALWAYS" />
          <VBox prefHeight="200.0" prefWidth="66.0" style="-fx-background-color: #f9f9f9;">
             <children>
                <Button fx:id="createWarehouse" styleClass="settingsBtn" text="创建库" />
