@@ -33,7 +33,7 @@ public class WarehouseStyle extends VBox {
         titleText.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: #a2a2a2; -fx-pref-width: 80");
         setId(title);//设置ID为title方便日后操作（比如删除、防重等
         Label descriptionText = new Label(description);
-        descriptionText.setStyle("-fx-pref-width: 100; -fx-pref-height: 60");
+        descriptionText.setStyle("-fx-pref-width: 100;/* -fx-pref-height: 60; -fx-min-height: 35;*/");
         Label test = new Label();
         getChildren().add(titleText);
         getChildren().add(descriptionText);
