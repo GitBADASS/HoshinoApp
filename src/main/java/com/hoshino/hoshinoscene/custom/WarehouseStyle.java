@@ -1,6 +1,7 @@
 package com.hoshino.hoshinoscene.custom;
 
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
+import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -29,13 +30,19 @@ public class WarehouseStyle extends VBox {
         this.title = wh.getName();
         this.description = wh.getDescription();
         Label titleText = new Label(title);
+        titleText.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: #a2a2a2; -fx-pref-width: 80");
         setId(title);//设置ID为title方便日后操作（比如删除、防重等
         Label descriptionText = new Label(description);
         Label test = new Label();
         getChildren().add(titleText);
         getChildren().add(descriptionText);
         getChildren().add(test);
-        this.setStyle("-fx-background-color: #f3f3f3;-fx-pref-width: 100; -fx-pref-height: 60;");
+        String warehouseStyle = "-fx-pref-width: 100; -fx-pref-height: 60; -fx-background-radius: 3px; -fx-padding: 5px;";
+        this.setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;");
+        this.setOnMouseEntered(e->setStyle(warehouseStyle + "-fx-background-color: #eaeaea;"));
+        this.setOnMouseExited(e->setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;"));
+        titleText.setContextMenu(new ForWarehouse());
+        descriptionText.setContextMenu(new ForWarehouse());
     }
 
     //更改方法

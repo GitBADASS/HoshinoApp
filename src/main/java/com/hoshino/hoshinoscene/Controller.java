@@ -39,13 +39,13 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        root.setOnMouseEntered(e-> {
+        /*root.setOnMouseEntered(e-> {
             try {
                 load();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-        });
+        });*/
         //刷新
         flush.setOnAction(e-> {
             try {

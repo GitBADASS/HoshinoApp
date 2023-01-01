@@ -1,6 +1,7 @@
 package com.hoshino.hoshinoscene.tools;
 
 import com.hoshino.hoshinoscene.Controller;
+import com.hoshino.hoshinoscene.HoshinoApp;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -140,7 +141,12 @@ public class GenController implements Initializable {
                     //清空单词框
                     elementsList.getItems().clear();
                     stage.close();//退出
-                    Controller c = new FXMLLoader(GenWarehouse.class.getResource("pages/gen.fxml")).getController();
+                    Controller c = new FXMLLoader(HoshinoApp.class.getResource("app-view.fxml")).getController();
+                    try {
+                        c.load();
+                    } catch (IOException ex) {
+                        System.out.println("文件加载失败");
+                    }
                 } else {
                     if(warnText.getOpacity()==0) {
                         warnText.setText("文件已存在");
