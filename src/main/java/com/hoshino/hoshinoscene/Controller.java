@@ -5,11 +5,15 @@ import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -25,6 +29,7 @@ public class Controller implements Initializable{
     public Button createWarehouse;
     public FlowPane content;
     public Button flush;
+    public HBox contentHBox;
     /*
     * 要求：点击创建库按钮进入创建学习库窗口
     * 我们应该提前先创建好一个窗口，然后在触发点击事件的时候调用show()方法，否则会出现多开bug
@@ -39,6 +44,12 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ScrollPane sc = new ScrollPane();
+        sc.setPrefWidth(200);
+        sc.setStyle("-fx-padding: 0");
+        sc.setContent(content);
+        sc.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        contentHBox.getChildren().add(sc);
         /*root.setOnMouseEntered(e-> {
             try {
                 load();

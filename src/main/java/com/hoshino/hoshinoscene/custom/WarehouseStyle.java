@@ -24,21 +24,23 @@ public class WarehouseStyle extends VBox {
         //待补充...
         //...
     }*/
-
+    public static final int WAREHOUSE_WIDTH = 200;
+    public static final int WAREHOUSE_HEIGHT = 120;
     //传入一个WordsWarehouse的对象
     public WarehouseStyle(WordsWarehouse wh) {
         this.title = wh.getName();
         this.description = wh.getDescription();
         Label titleText = new Label(title);
-        titleText.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: #a2a2a2; -fx-pref-width: 80");
+        titleText.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: #a2a2a2; -fx-pref-width: " + (WAREHOUSE_WIDTH - 50) + "; -fx-padding: 3;");
         setId(title);//设置ID为title方便日后操作（比如删除、防重等
         Label descriptionText = new Label(description);
-        descriptionText.setStyle("-fx-pref-width: 100;/* -fx-pref-height: 60; -fx-min-height: 35;*/");
+        descriptionText.setWrapText(true);
+        descriptionText.setStyle("-fx-pref-width: " + WAREHOUSE_WIDTH + ";  -fx-padding: 3;"/* -fx-pref-height: 60; -fx-min-height: 35;*/);
         Label test = new Label();
         getChildren().add(titleText);
         getChildren().add(descriptionText);
         getChildren().add(test);
-        String warehouseStyle = "-fx-pref-width: 100; -fx-pref-height: 60; -fx-background-radius: 3px; -fx-padding: 5px;";
+        String warehouseStyle = "-fx-pref-width: " + WAREHOUSE_WIDTH + "; -fx-pref-height: " + WAREHOUSE_HEIGHT + "; -fx-background-radius: 3px; -fx-padding: 5px;";
         this.setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;");
         this.setOnMouseEntered(e->setStyle(warehouseStyle + "-fx-background-color: #eaeaea;"));
         this.setOnMouseExited(e->setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;"));

@@ -10,9 +10,9 @@
 <VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.Controller">
    <fx:define>
    </fx:define>
-   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" fx:id="contentHBox">
       <children>
-         <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" style="-fx-hgap: 5; -fx-vgap: 5; -fx-padding: 5;" HBox.hgrow="ALWAYS" />
+         <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #e9e9e9;">
             <children>
                <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="100.0" styleClass="settingsBtn" text="创建">
