@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
+<?import javafx.scene.control.TextArea?>
 <VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.Controller">
    <fx:define>
    </fx:define>
@@ -41,8 +42,8 @@
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
             <children>
-               <Label fx:id="nameLabel" prefWidth="1.0E7" style="-fx-font-size: 25; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: #f5f5f5; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;" text="Title" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
-               <Label fx:id="descriptionLabel" style="-fx-padding: 15; -fx-font-size: 15;" text="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" wrapText="true" VBox.vgrow="ALWAYS" />
+               <Label fx:id="nameLabel" prefWidth="1.0E7" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: #f5f5f5; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+               <TextArea editable="false" fx:id="descriptionLabel" style="-fx-padding: 5; -fx-font-size: 15; -fx-background-color: transparent, white, transparent, white; -fx-border-width: 0" wrapText="true" VBox.vgrow="ALWAYS" />
                <VBox style="-fx-padding: 10;" VBox.vgrow="ALWAYS">
                   <children>
                      <TextFlow prefHeight="15.0" prefWidth="370.0" style="-fx-background-color: #f5f5f5; -fx-padding: 5;">

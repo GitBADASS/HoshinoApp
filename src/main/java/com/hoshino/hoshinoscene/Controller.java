@@ -10,10 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
@@ -39,7 +36,7 @@ public class Controller implements Initializable{
     public Button flush;
     public HBox contentHBox;
     public Label nameLabel;
-    public Label descriptionLabel;
+    public TextArea descriptionLabel;
     public ListView<WordsShowing> wordsShowing;
     /*
     * 要求：点击创建库按钮进入创建学习库窗口
@@ -72,6 +69,7 @@ public class Controller implements Initializable{
         HashMap<String, String> h = new HashMap<>();
         h.put("nice", "好的");
         h.put("bad", "不好的");
+        h.put("Hoshino", "[罗马字]星野");
         h.put("one", "一");
         h.put("tow", "二");
         h.put("three", "三");
@@ -80,6 +78,8 @@ public class Controller implements Initializable{
         h.put("four", "四");
         h.put("five", "五");
         h.put("banana", "香蕉");
+        nameLabel.setText("星夜社单词库");
+        descriptionLabel.setText("欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n单词库创建规范：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称");
         WordsWarehouse wh = new WordsWarehouse("测试", "好的测试", h);
         Set<String > keySet = wh.getContent().keySet();
         for(String key : keySet) {
