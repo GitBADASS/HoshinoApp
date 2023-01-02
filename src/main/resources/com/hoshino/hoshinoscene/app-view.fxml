@@ -10,12 +10,12 @@
 <VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.Controller">
    <fx:define>
    </fx:define>
-   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" fx:id="contentHBox">
+   <HBox fx:id="contentHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <children>
          <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #e9e9e9;">
+         <VBox prefHeight="200.0" prefWidth="120.0" style="-fx-background-color: #e9e9e9; -fx-border-width: 0 1 0 0; -fx-border-color: #a2a2a2;">
             <children>
-               <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="100.0" styleClass="settingsBtn" text="创建">
+               <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="创建">
                   <graphic>
                      <ImageView fitHeight="20.0" fitWidth="20.0">
                         <image>
@@ -23,7 +23,7 @@
                         </image>
                      </ImageView>
                   </graphic></Button>
-               <Button fx:id="flush" prefHeight="50.0" prefWidth="100.0" styleClass="settingsBtn" text="刷新">
+               <Button fx:id="flush" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="刷新">
                   <graphic>
                      <ImageView fitHeight="25.0" fitWidth="25.0">
                         <image>

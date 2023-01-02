@@ -90,10 +90,15 @@
 }
 
 .warehouseShowing {
-    -fx-background-color: #f3f3f3;-fx-pref-width: 100; -fx-pref-height: 60; -fx-background-radius: 3px; -fx-padding: 5px
+    -fx-background-color: #f3f3f3;-fx-pref-width: 200; -fx-pref-height: 120; -fx-background-radius: 3px; -fx-padding: 5px;
+
 }
 
 .warehouseShowing:hover {
+    -fx-background-color: #eaeaea
+}
+
+.warehouseShowing:focused {
     -fx-background-color: #eaeaea
 }
 
@@ -115,6 +120,9 @@
 }
 .label {
     -fx-text-fill: BLACK;
+}
+.scroll-pane:focused {
+    -fx-background-color: transparent, white, transparent, white;
 }
 
 /*自定义滚动条*/

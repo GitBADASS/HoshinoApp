@@ -2,6 +2,8 @@ package com.hoshino.hoshinoscene.custom;
 
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -40,10 +42,11 @@ public class WarehouseStyle extends VBox {
         getChildren().add(titleText);
         getChildren().add(descriptionText);
         getChildren().add(test);
-        String warehouseStyle = "-fx-pref-width: " + WAREHOUSE_WIDTH + "; -fx-pref-height: " + WAREHOUSE_HEIGHT + "; -fx-background-radius: 3px; -fx-padding: 5px;";
+        /*String warehouseStyle = "-fx-pref-width: " + WAREHOUSE_WIDTH + "; -fx-pref-height: " + WAREHOUSE_HEIGHT + "; -fx-background-radius: 3px; -fx-padding: 5px;";
         this.setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;");
         this.setOnMouseEntered(e->setStyle(warehouseStyle + "-fx-background-color: #eaeaea;"));
-        this.setOnMouseExited(e->setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;"));
+        this.setOnMouseExited(e->setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;"));*/
+        this.getStyleClass().add("warehouseShowing");
         titleText.setContextMenu(new ForWarehouse());
         descriptionText.setContextMenu(new ForWarehouse());
     }
