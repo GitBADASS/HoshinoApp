@@ -128,7 +128,9 @@
 .scroll-pane:focused {
     -fx-background-color: transparent, white, transparent, white;
 }
-
+.list-cell:focused {
+    -fx-background-color: transparent, #e9e9e9, transparent, #e9e9e9;
+}
 /*自定义滚动条*/
 
 /*

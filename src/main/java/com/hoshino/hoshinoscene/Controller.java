@@ -3,11 +3,16 @@ package com.hoshino.hoshinoscene;
 import com.alibaba.fastjson2.JSON;
 import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
+import com.hoshino.hoshinoscene.tools.WordsInput;
+import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
@@ -23,7 +28,9 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class Controller implements Initializable{
     public VBox root;
@@ -31,6 +38,9 @@ public class Controller implements Initializable{
     public FlowPane content;
     public Button flush;
     public HBox contentHBox;
+    public Label nameLabel;
+    public Label descriptionLabel;
+    public ListView<WordsShowing> wordsShowing;
     /*
     * 要求：点击创建库按钮进入创建学习库窗口
     * 我们应该提前先创建好一个窗口，然后在触发点击事件的时候调用show()方法，否则会出现多开bug
@@ -58,6 +68,26 @@ public class Controller implements Initializable{
                 throw new RuntimeException(ex);
             }
         });*/
+        ArrayList<WordsShowing> elementsList = new ArrayList<>();
+        HashMap<String, String> h = new HashMap<>();
+        h.put("nice", "好的");
+        h.put("bad", "不好的");
+        h.put("one", "一");
+        h.put("tow", "二");
+        h.put("three", "三");
+        h.put("apple", "苹果");
+        h.put("pear", "梨子");
+        h.put("four", "四");
+        h.put("five", "五");
+        h.put("banana", "香蕉");
+        WordsWarehouse wh = new WordsWarehouse("测试", "好的测试", h);
+        Set<String > keySet = wh.getContent().keySet();
+        for(String key : keySet) {
+            WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
+            elementsList.add(ws);
+        }
+        ObservableList<WordsShowing> el = FXCollections.observableList(elementsList);
+        wordsShowing.setItems(el);
         //刷新
         flush.setOnAction(e-> {
             try {
