@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 
 public class ForWarehouse extends ContextMenu {
-    public static final String ICON_STYLE = "-fx-font-size: 15";
+    public static final String ICON_STYLE = "-fx-font-size: 12";
     public ForWarehouse() {
         Label iconOfDel = new Label("🚮 ");
         Label iconOfSet = new Label("🛠 ");

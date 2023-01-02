@@ -107,7 +107,7 @@
 }
 
 .menu-item {
-    -fx-padding: 5 25 5 25;
+    -fx-padding: 5 30;
 }
 
 .menu-item > .label {
