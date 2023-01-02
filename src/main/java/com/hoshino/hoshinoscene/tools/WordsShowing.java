@@ -13,8 +13,6 @@ public class WordsShowing extends HBox {
         left.setAlignment(Pos.CENTER_LEFT);
         right.setAlignment(Pos.CENTER_LEFT);
         Label cnL = new Label(cn);
-        /*setHgrow(left, Priority.ALWAYS);
-        setHgrow(right, Priority.ALWAYS);*/
         left.getChildren().add(cnL);
         Label enL = new Label(en);
         right.getChildren().add(enL);

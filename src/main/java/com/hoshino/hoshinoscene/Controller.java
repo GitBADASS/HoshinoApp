@@ -3,20 +3,16 @@ package com.hoshino.hoshinoscene;
 import com.alibaba.fastjson2.JSON;
 import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
-import com.hoshino.hoshinoscene.tools.WordsInput;
 import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -52,12 +48,13 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //添加单词库展示的滚动板
         ScrollPane sc = new ScrollPane();
         sc.setPrefWidth(200);
         sc.setStyle("-fx-padding: 0");
         sc.setContent(content);
         sc.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        contentHBox.getChildren().add(2, sc);
+        contentHBox.getChildren().add(2, sc);//设置它的位置
         /*root.setOnMouseEntered(e-> {
             try {
                 load();
@@ -65,6 +62,7 @@ public class Controller implements Initializable{
                 throw new RuntimeException(ex);
             }
         });*/
+        //添加初始内容
         ArrayList<WordsShowing> elementsList = new ArrayList<>();
         HashMap<String, String> h = new HashMap<>();
         h.put("nice", "好的");
@@ -88,6 +86,7 @@ public class Controller implements Initializable{
         }
         ObservableList<WordsShowing> el = FXCollections.observableList(elementsList);
         wordsShowing.setItems(el);
+
         //刷新
         flush.setOnAction(e-> {
             try {
