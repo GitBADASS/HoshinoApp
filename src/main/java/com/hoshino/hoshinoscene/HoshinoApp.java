@@ -13,6 +13,7 @@ import java.util.Objects;
 
 //主类
 //TODO:新建一个类，存放指定 css 样式文件，各个页面样式均来自该类（可能需要另外的配置文件，到时候能合并就和其他配置文件合并（这个可以手动创建好
+//TODO: 1.右键菜单 2.搜索功能
 public class HoshinoApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
