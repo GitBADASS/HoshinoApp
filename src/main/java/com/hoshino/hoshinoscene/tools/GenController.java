@@ -209,8 +209,8 @@ public class GenController implements Initializable {
     }
     //判断是否不符合规范方法（这里把TF和TA分开而不用它们的父类是因为对文字内容总长的需求不同
     private boolean unconformable(TextField tf) {
-        //为空、空格且字数大于等于50的内容是不符合规范的
-        return tf.getLength() >= 50 || Objects.equals(tf.getText(), " ") || tf.getLength()  == 0;
+        //为空、空格且字数大于等于25的内容是不符合规范的
+        return tf.getLength() >= 20 || Objects.equals(tf.getText(), " ") || tf.getLength()  == 0;
     }
 
     private boolean unconformable(TextArea ta) {
