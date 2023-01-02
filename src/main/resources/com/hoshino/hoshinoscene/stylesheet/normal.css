@@ -90,8 +90,8 @@
 }
 
 .warehouseShowing {
-    -fx-background-color: #f3f3f3;-fx-pref-width: 200; -fx-pref-height: 120; -fx-background-radius: 3px; -fx-padding: 5px;
-
+    -fx-background-color: #f5f5f5;-fx-pref-width: 200; -fx-pref-height: 120; -fx-background-radius: 3px; -fx-padding: 5px;
+    -fx-border-color: #e0e0e0;-fx-border-width: 0 1 0 0;
 }
 
 .warehouseShowing:hover {
@@ -100,6 +100,10 @@
 
 .warehouseShowing:focused {
     -fx-background-color: #eaeaea
+}
+
+.warehouseShowing:pressed {
+    -fx-background-color: #f5f5f5;
 }
 
 .menu-item {

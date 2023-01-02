@@ -7,6 +7,7 @@ import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
@@ -49,7 +50,7 @@ public class Controller implements Initializable{
         sc.setStyle("-fx-padding: 0");
         sc.setContent(content);
         sc.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        contentHBox.getChildren().add(sc);
+        contentHBox.getChildren().add(2, sc);
         /*root.setOnMouseEntered(e-> {
             try {
                 load();
