@@ -137,7 +137,7 @@ public class Controller implements Initializable{
         content.getChildren().clear();
         for (WordsWarehouse wh : warehouseList) {
             System.out.println("展示"+wh);
-            content.getChildren().add(new WarehouseStyle(wh));//展示
+            content.getChildren().add(new WarehouseStyle(wh, nameLabel, descriptionLabel, wordsShowing));//展示
         }
         System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
     }

@@ -1,11 +1,19 @@
 package com.hoshino.hoshinoscene.custom;
 
+import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 //目前该类仍然是比较呆板，日后会弃用也说不定
 //这种展示类应该侧重与存储信息的JSON文件的联动，并且应该有各种各样的鼠标事件（比如右键菜单，左键打开学习库等等等
@@ -29,7 +37,7 @@ public class WarehouseStyle extends VBox {
     public static final int WAREHOUSE_WIDTH = 200;
     public static final int WAREHOUSE_HEIGHT = 120;
     //传入一个WordsWarehouse的对象
-    public WarehouseStyle(WordsWarehouse wh) {
+    public WarehouseStyle(WordsWarehouse wh, Label nameL, TextArea descriptionL,  ListView<WordsShowing> wsList) {
         this.title = wh.getName();
         this.description = wh.getDescription();
         Label titleText = new Label(title);
@@ -49,6 +57,19 @@ public class WarehouseStyle extends VBox {
         this.getStyleClass().add("warehouseShowing");
         titleText.setContextMenu(new ForWarehouse());
         descriptionText.setContextMenu(new ForWarehouse());
+        ArrayList<WordsShowing> wsAL = new ArrayList<>();
+        this.setOnMouseClicked(e->{
+            wsList.getItems().clear();
+            Set<String > keySet = wh.getContent().keySet();
+            for(String key : keySet) {
+                WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
+                wsAL.add(ws);
+            }
+            ObservableList<WordsShowing> el = FXCollections.observableList(wsAL);
+            wsList.setItems(el);
+            nameL.setText(wh.getName());
+            descriptionL.setText(wh.getDescription());
+        });
     }
 
     //更改方法
