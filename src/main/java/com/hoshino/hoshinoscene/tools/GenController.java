@@ -25,7 +25,6 @@ public class GenController implements Initializable {
     public VBox root;//最底部VBox
     public Label warnText;//警告文本
     public Button clearName;//清空名称输入框按钮
-    public Button clearDescription;
     public Button addElement;
     public ListView<WordsInput> elementsList;
     public Button deleteElement;
@@ -73,7 +72,7 @@ public class GenController implements Initializable {
 
         //清空方法
         addClearFun(name, clearName);//名称输入框清空
-        addClearFun(description, clearDescription);//描述输入框清空
+        //addClearFun(description, clearDescription);//描述输入框清空
         deleteSpace(name);
         deleteSpace(description);
         //TODO:需要增添对中英文内容的判断（使用正则表达式
@@ -141,7 +140,8 @@ public class GenController implements Initializable {
                     //清空单词框
                     elementsList.getItems().clear();
                     stage.close();//退出
-                    Controller c = new FXMLLoader(HoshinoApp.class.getResource("app-view.fxml")).getController();
+                    //Controller类加载
+                    Controller c = HoshinoApp.fxmlLoader.getController();
                     try {
                         c.load();
                     } catch (IOException ex) {

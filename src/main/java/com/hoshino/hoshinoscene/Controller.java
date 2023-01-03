@@ -62,6 +62,7 @@ public class Controller implements Initializable{
                 throw new RuntimeException(ex);
             }
         });*/
+
         //添加初始内容
         ArrayList<WordsShowing> elementsList = new ArrayList<>();
         HashMap<String, String> h = new HashMap<>();

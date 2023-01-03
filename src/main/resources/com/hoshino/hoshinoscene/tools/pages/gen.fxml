@@ -14,38 +14,41 @@
       <children>
          <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
             <children>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-padding: 30;">
                   <children>
-                     <Label styleClass="normal" text="库名称">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                     <TextField fx:id="name" prefHeight="26.0" prefWidth="210.0" styleClass="wordsInput">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </TextField>
-                     <Button fx:id="clearName" mnemonicParsing="false" prefHeight="24.0" styleClass="settingsBtn" text="x" />
+                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="305.0" spacing="5.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #e9e9e9;" HBox.hgrow="NEVER">
+                        <children>
+                           <Label styleClass="normal" text="库名称">
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                           </Label>
+                           <TextField fx:id="name" prefHeight="26.0" prefWidth="210.0" styleClass="wordsInput">
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                           </TextField>
+                           <Button fx:id="clearName" mnemonicParsing="false" prefHeight="24.0" style="-fx-background-radius: 5;" styleClass="settingsBtn" text="x" />
+                        </children>
+                     </HBox>
                   </children>
                </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                   <children>
-                     <Label styleClass="normal" text="库描述">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="210.0" wrapText="true">
+                     <VBox prefHeight="200.0" prefWidth="47.0">
+                        <children>
+                           <Label styleClass="normal" text="库描述">
+                              <padding>
+                                 <Insets left="5.0" right="5.0" />
+                              </padding>
+                           </Label>
+                        </children>
+                     </VBox>
+                     <TextArea fx:id="description" prefHeight="99.0" prefWidth="253.0" style="-fx-border-color: #e9e9e9; -fx-border-width: 1; -fx-border-radius: 0 5;" wrapText="true">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </TextArea>
-                     <VBox prefHeight="200.0" prefWidth="37.0">
-                        <children>
-                           <Button fx:id="clearDescription" mnemonicParsing="false" prefHeight="98.0" prefWidth="37.0" styleClass="settingsBtn" text="x" />
-                        </children>
-                     </VBox>
                   </children>
                </HBox>
                <HBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
@@ -89,7 +92,7 @@
                </HBox>
                <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
                   <children>
-                     <Button fx:id="save" mnemonicParsing="false" styleClass="settingsBtn" text="保存">
+                     <Button fx:id="save" mnemonicParsing="false" prefWidth="65.0" styleClass="settingsBtn" text="保存">
                         <HBox.margin>
                            <Insets left="5.0" right="5.0" />
                         </HBox.margin>
@@ -106,7 +109,7 @@
          </HBox>
          <VBox alignment="CENTER" prefHeight="60.0" prefWidth="400.0">
             <children>
-               <Label fx:id="warnText" alignment="CENTER" prefHeight="60.0" prefWidth="400.0" styleClass="warn" text="保存失败，请检查书写是否规范" style="-fx-text-fill: #cc0000"/>
+               <Label fx:id="warnText" alignment="CENTER" prefHeight="60.0" prefWidth="400.0" style="-fx-text-fill: #cc0000" styleClass="warn" text="保存失败，请检查书写是否规范" />
             </children>
          </VBox>
       </children>
