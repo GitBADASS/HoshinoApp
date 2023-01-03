@@ -53,10 +53,11 @@ public class WarehouseStyle extends VBox {
         /*String warehouseStyle = "-fx-pref-width: " + WAREHOUSE_WIDTH + "; -fx-pref-height: " + WAREHOUSE_HEIGHT + "; -fx-background-radius: 3px; -fx-padding: 5px;";
         this.setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;");
         this.setOnMouseEntered(e->setStyle(warehouseStyle + "-fx-background-color: #eaeaea;"));
-        this.setOnMouseExited(e->setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;"));*/
+        //this.setOnMouseExited(e->setStyle(warehouseStyle + "-fx-background-color: #f3f3f3;"));*/
+        //TODO:将如下繁杂的更改简化为一个方法
         this.getStyleClass().add("warehouseShowing");
-        titleText.setContextMenu(new ForWarehouse());
-        descriptionText.setContextMenu(new ForWarehouse());
+        titleText.setContextMenu(new ForWarehouse(this));
+        descriptionText.setContextMenu(new ForWarehouse(this));
         ArrayList<WordsShowing> wsAL = new ArrayList<>();
         this.setOnMouseClicked(e->{
             wsList.getItems().clear();
