@@ -70,6 +70,7 @@ public class WarehouseStyle extends VBox {
             wsList.setItems(el);
             nameL.setText(wh.getName());
             descriptionL.setText(wh.getDescription());
+            System.out.println("正在展示 "+wh.getName()+".json 文件的详情");
         });
     }
 

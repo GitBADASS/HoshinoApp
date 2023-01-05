@@ -99,28 +99,12 @@ public class Controller implements Initializable{
         });
         //展示介绍页
         introduction.setOnAction(e->{
-            ArrayList<WordsShowing> elementsList2 = new ArrayList<>();
-            HashMap<String, String> h2 = new HashMap<>();
-            h.put("nice", "好的");
-            h.put("bad", "不好的");
-            h.put("Hoshino", "[罗马字]星野");
-            h.put("one", "一");
-            h.put("tow", "二");
-            h.put("three", "三");
-            h.put("apple", "苹果");
-            h.put("pear", "梨子");
-            h.put("four", "四");
-            h.put("five", "五");
-            h.put("banana", "香蕉");
             nameLabel.setText("星夜社单词库");
             descriptionLabel.setText("欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n规范的单词库：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称不能超过25个字且不能重复、单词库描述不能超过200个字");
-            WordsWarehouse wh2 = new WordsWarehouse("测试", "好的测试", h);
-            Set<String > keySet2 = wh.getContent().keySet();
             for(String key : keySet) {
                 WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
                 elementsList.add(ws);
             }
-            ObservableList<WordsShowing> el2 = FXCollections.observableList(elementsList);
             wordsShowing.setItems(el);
         });
         //创建新窗口
@@ -153,15 +137,17 @@ public class Controller implements Initializable{
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
         File[] fileList = jsons.listFiles();//获取库文件夹下所有文件
-        assert fileList != null;
+        assert fileList != null;//断言
+        //遍历文件
         for (File file : fileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
-            WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);
+            WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);//解析为 WordsWarehouse 类
             System.out.println("找到"+wordsWarehouse);
-            warehouseList.add(wordsWarehouse);
+            warehouseList.add(wordsWarehouse);//将解析出的 WordsWarehouse 类添加到集合中
         }
         //率先清空，防止反复添加
         content.getChildren().clear();
+        //遍历集合并展示
         for (WordsWarehouse wh : warehouseList) {
             System.out.println("展示"+wh);
             content.getChildren().add(new WarehouseStyle(wh, nameLabel, descriptionLabel, wordsShowing));//展示
