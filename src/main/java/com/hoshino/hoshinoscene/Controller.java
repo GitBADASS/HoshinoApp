@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -51,12 +52,18 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //添加单词库展示的滚动板
+        VBox side = new VBox();
+        TextField search = new TextField();
+        search.getStyleClass().add("search");
         ScrollPane sc = new ScrollPane();
         sc.setPrefWidth(200);
         sc.setStyle("-fx-padding: 0");
         sc.setContent(content);
         sc.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        contentHBox.getChildren().add(2, sc);//设置它的位置
+        VBox.setVgrow(side, Priority.ALWAYS);
+        VBox.setVgrow(sc, Priority.ALWAYS);
+        side.getChildren().addAll(search, sc);
+        contentHBox.getChildren().add(2, side);//设置它的位置
         /*root.setOnMouseEntered(e-> {
             try {
                 load();
