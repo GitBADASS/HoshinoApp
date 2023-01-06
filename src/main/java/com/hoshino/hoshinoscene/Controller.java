@@ -8,6 +8,7 @@ import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
@@ -97,6 +98,7 @@ public class Controller implements Initializable{
                 throw new RuntimeException(ex);
             }
         });
+
         //展示介绍页
         introduction.setOnAction(e->{
             nameLabel.setText("星夜社单词库");
@@ -107,6 +109,24 @@ public class Controller implements Initializable{
             }
             wordsShowing.setItems(el);
         });
+
+        //伪 focus
+        nameLabel.textProperty().addListener((observableValue, s, t1) -> {
+            /*for(Node ws : content.getChildren()) {
+                ws.setStyle(null);
+            }*/
+            System.out.println("===库展示目标变更===");
+            //遍历 content
+            for(Node ws : content.getChildren()) {
+                //首先清空样式
+                ws.setStyle(null);
+                if(ws.getId().equals(nameLabel.getText())) {
+                    //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
+                    ws.setStyle("-fx-background-color: #eaeaea");
+                }
+            }
+        });
+
         //创建新窗口
         createWarehouse.setOnMousePressed(e->{
             //检查新窗口是否已存在，若为否，则新建，若为是，则将它拽到前面
