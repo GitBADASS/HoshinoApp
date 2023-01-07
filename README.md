@@ -4,7 +4,7 @@
 
 **🥀If we are always busy in school studying or always short of developer, this project would be deserted🏜.**
 
-Now, it's main usage is to help user to learn English (after all we are only middle-school students, it seems that we actually need it XD).
+Now, its main usage is to help user to learn English (after all we are only middle-school students, it seems that we actually need it XD).
 
 In the future, it's usage will be changed into showing or posting somethings.
 
