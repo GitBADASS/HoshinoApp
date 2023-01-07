@@ -148,6 +148,18 @@ public class Controller implements Initializable{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        HashMap<String, Node> wsList = new HashMap<>();
+        search.textProperty().addListener((observableValue, s, t1) -> {
+            for(Node ws : content.getChildren()) {
+                wsList.put(ws.getId(), ws);
+            }
+            content.getChildren().clear();
+            for (String s1 : wsList.keySet()) {
+                if (s1.contains(search.getText())) {
+                    content.getChildren().add(wsList.get(s1));
+                }
+            }
+        });
     }
 
     public void addExitListener(Stage stage) {
