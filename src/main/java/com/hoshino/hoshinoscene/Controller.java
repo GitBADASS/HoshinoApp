@@ -133,7 +133,7 @@ public class Controller implements Initializable{
                 ws.setStyle(null);
                 if(ws.getId().equals(nameLabel.getText())) {
                     //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
-                    ws.setStyle("-fx-background-color: #eaeaea");
+                    ws.setStyle("-fx-background-color: #efefef");
                 }
             }
         });
