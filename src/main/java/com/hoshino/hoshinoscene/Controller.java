@@ -180,6 +180,8 @@ public class Controller implements Initializable{
         File jsons = new File("json\\warehouses");
         File[] fileList = jsons.listFiles();//获取库文件夹下所有文件
         assert fileList != null;//断言
+        //率先清空，防止反复添加
+        warehouseList.clear();
         //遍历文件
         for (File file : fileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
