@@ -37,6 +37,8 @@ public class Controller implements Initializable{
     public TextArea descriptionLabel;
     public ListView<WordsShowing> wordsShowing;
     public Button introduction;
+    //文件加载
+    ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();//用于存放扫描出的该类
     /*
     * 要求：点击创建库按钮进入创建学习库窗口
     * 我们应该提前先创建好一个窗口，然后在触发点击事件的时候调用show()方法，否则会出现多开bug
@@ -174,7 +176,6 @@ public class Controller implements Initializable{
 
     //加载文件并展示
     public void load() throws IOException {
-        ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();//用于存放扫描出的该类
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
         File[] fileList = jsons.listFiles();//获取库文件夹下所有文件
