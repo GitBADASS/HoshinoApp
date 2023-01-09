@@ -54,7 +54,9 @@ public class Controller implements Initializable{
         //添加单词库展示的滚动板
         VBox side = new VBox();
         TextField search = new TextField();
+        search.setPromptText("搜索...");
         search.getStyleClass().add("search");
+        search.setPrefHeight(35);
         ScrollPane sc = new ScrollPane();
         sc.setPrefWidth(200);
         sc.setStyle("-fx-padding: 0");
