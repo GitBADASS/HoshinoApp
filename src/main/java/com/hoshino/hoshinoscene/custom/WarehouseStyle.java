@@ -36,6 +36,8 @@ public class WarehouseStyle extends VBox {
         Label descriptionText = new Label(description);
         descriptionText.setWrapText(true);
         descriptionText.setStyle("-fx-pref-width: " + WAREHOUSE_WIDTH + ";  -fx-padding: 3;"/* -fx-pref-height: 60; -fx-min-height: 35;*/);
+        this.setHeight(titleText.getHeight()+descriptionText.getHeight());
+        this.setMaxHeight(120);
 
         Label test = new Label();
         getChildren().add(titleText);

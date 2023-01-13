@@ -90,7 +90,7 @@
 }
 
 .warehouseShowing {
-    -fx-background-color: #ffffff;-fx-pref-width: 200; -fx-pref-height: 120; -fx-background-radius: 3px; -fx-padding: 5px;
+    -fx-background-color: #ffffff;-fx-pref-width: 200;/* -fx-pref-height: 120;*/ -fx-background-radius: 3px; -fx-padding: 5px;
     -fx-border-color: #e0e0e0;-fx-border-width: 0 1 0 0;
 }
 
