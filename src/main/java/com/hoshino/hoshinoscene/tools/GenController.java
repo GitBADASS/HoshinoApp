@@ -2,6 +2,7 @@ package com.hoshino.hoshinoscene.tools;
 
 import com.hoshino.hoshinoscene.Controller;
 import com.hoshino.hoshinoscene.HoshinoApp;
+import com.hoshino.hoshinoscene.tools.animations.AnimatedGen;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -164,7 +165,7 @@ public class GenController implements Initializable {
                 }
             } else {
                 //检查按钮触发的时候控件不透明度是否为零，防止出现动画乱抽
-                if(warnText.getOpacity()==0) {
+                /*if(warnText.getOpacity()==0) {
                     warnText.setText("保存失败，请检查书写是否规范");
                     animationIn.play();//显示警告文本
                     //设置延时
@@ -177,6 +178,26 @@ public class GenController implements Initializable {
                         }
                     };
                     t.schedule(tt, 3000);//3s后执行
+                }*/
+                ArrayList<Label> ls = new ArrayList<>();
+                ls.add(warnText);
+                boolean emptyDescription = description.getText().length()==0;
+                boolean emptyName = name.getText().length()==0;
+                boolean noWords = elementsList.getItems().size()==0;
+                WordsInput lastOne = elementsList.getItems().get(elementsList.getItems().size()-1);
+                boolean emptyWord = lastOne.cn.getText().length()==0 || lastOne.en.getText().length()==0;
+                if(emptyDescription && emptyName && noWords) {
+                    AnimatedGen.warningAnimation("试着添加一些东西吧", ls);
+                }
+                if(emptyWord) {
+                    AnimatedGen.warningAnimation("单词还没有填写完毕", ls);
+                }else if(emptyName&&emptyDescription) {
+                    AnimatedGen.warningAnimation("名称和描述都是必填项", ls);
+                }
+                else if(emptyName) {
+                    AnimatedGen.warningAnimation("名称是必须添加的", ls);
+                } else if(emptyDescription) {
+                    AnimatedGen.warningAnimation("描述也是必须添加的", ls);
                 }
             }
         });
