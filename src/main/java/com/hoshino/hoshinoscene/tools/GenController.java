@@ -196,18 +196,16 @@ public class GenController implements Initializable {
 
                 if (emptyDescription && emptyName && noWords) {
                     AnimatedGen.warningAnimation("试着添加一些东西吧", ls);
-                }
-
-                if (noWords) {
+                } else if(emptyName && emptyDescription) {
+                    AnimatedGen.warningAnimation("名称和描述均不能为空", ls);
+                } else if (emptyDescription) {
+                    AnimatedGen.warningAnimation("描述不能为空", ls);
+                } else if (emptyName) {
+                    AnimatedGen.warningAnimation("名称不能为空", ls);
+                } else if (noWords) {
                     AnimatedGen.warningAnimation("还没有添加任何单词", ls);
                 } else if (emptyWord) {
                     AnimatedGen.warningAnimation("单词未填写完毕", ls);
-                } else if (emptyName && emptyDescription) {
-                    AnimatedGen.warningAnimation("名称和描述都是必填项", ls);
-                } else if (emptyName) {
-                    AnimatedGen.warningAnimation("名称是必须添加的", ls);
-                } else if (emptyDescription) {
-                    AnimatedGen.warningAnimation("描述也是必须添加的", ls);
                 }
             }
         });
