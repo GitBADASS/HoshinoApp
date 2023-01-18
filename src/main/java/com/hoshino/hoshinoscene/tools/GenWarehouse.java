@@ -1,5 +1,6 @@
 package com.hoshino.hoshinoscene.tools;
 
+import com.hoshino.hoshinoscene.controllers.GenController;
 import com.hoshino.hoshinoscene.HoshinoApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

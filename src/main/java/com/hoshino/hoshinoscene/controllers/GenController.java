@@ -1,7 +1,10 @@
-package com.hoshino.hoshinoscene.tools;
+package com.hoshino.hoshinoscene.controllers;
 
 import com.hoshino.hoshinoscene.Controller;
 import com.hoshino.hoshinoscene.HoshinoApp;
+import com.hoshino.hoshinoscene.tools.Storage;
+import com.hoshino.hoshinoscene.tools.WordsInput;
+import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.animations.AnimatedGen;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
@@ -182,12 +185,16 @@ public class GenController implements Initializable {
                 ArrayList<Label> ls = new ArrayList<>();
                 ls.add(warnText);
 
+                //空描述
                 boolean emptyDescription = description.getText().length() == 0;
 
+                //空名称
                 boolean emptyName = name.getText().length() == 0;
 
+                //无单词
                 boolean noWords = elementsList.getItems().size() == 0;
 
+                //单词留空
                 boolean emptyWord = false;
                 if (!noWords) {
                     WordsInput lastOne = elementsList.getItems().get(elementsList.getItems().size() - 1);

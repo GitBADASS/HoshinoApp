@@ -8,4 +8,6 @@ module com.hoshino.hoshinoscene {
     opens com.hoshino.hoshinoscene.tools to javafx.fxml, com.alibaba.fastjson2;
     exports com.hoshino.hoshinoscene;
     exports com.hoshino.hoshinoscene.tools;
+    exports com.hoshino.hoshinoscene.controllers;
+    opens com.hoshino.hoshinoscene.controllers to com.alibaba.fastjson2, javafx.fxml;
 }

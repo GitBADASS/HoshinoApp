@@ -10,6 +10,7 @@ public class WordsInput extends HBox {
     public TextField cn = new TextField();
     public TextField en = new TextField();
     public WordsInput() {
+
         setAlignment(Pos.CENTER);
         cn.setStyle(TF_STYLE_LEFT);
         en.setStyle(TF_STYLE);
