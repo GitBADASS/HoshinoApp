@@ -126,16 +126,7 @@ public class Controller implements Initializable{
             /*for(Node ws : content.getChildren()) {
                 ws.setStyle(null);
             }*/
-            System.out.println("===库展示目标变更===");
-            //遍历 content
-            for(Node ws : content.getChildren()) {
-                //首先清空样式
-                ws.setStyle(null);
-                if(ws.getId().equals(nameLabel.getText())) {
-                    //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
-                    ws.setStyle("-fx-background-color: #efefef");
-                }
-            }
+            findFocus();
         });
 
         //创建新窗口
@@ -196,7 +187,23 @@ public class Controller implements Initializable{
             System.out.println("展示"+wh);
             content.getChildren().add(new WarehouseStyle(wh, nameLabel, descriptionLabel, wordsShowing));//展示
         }
+        //重新定位focus
+        findFocus();
+
         System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
+    }
+
+    private void findFocus() {
+        System.out.println("===库展示目标变更===");
+        //遍历 content
+        for(Node ws : content.getChildren()) {
+            //首先清空样式
+            ws.setStyle(null);
+            if(ws.getId().equals(nameLabel.getText())) {
+                //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
+                ws.setStyle("-fx-background-color: #efefef");
+            }
+        }
     }
 
 /*    public static void main(String[] args) throws IOException {
