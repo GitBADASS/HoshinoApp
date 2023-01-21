@@ -170,7 +170,7 @@ public class Controller implements Initializable{
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
         File[] fileList = jsons.listFiles();//获取库文件夹下所有文件
-        assert fileList != null;//断言
+        assert fileList != null;
         //率先清空，防止反复添加
         warehouseList.clear();
         //遍历文件
@@ -193,6 +193,7 @@ public class Controller implements Initializable{
         System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
     }
 
+    //定位
     private void findFocus() {
         System.out.println("===库展示目标变更===");
         //遍历 content

@@ -39,10 +39,10 @@ public class WarehouseStyle extends VBox {
         this.setHeight(titleText.getHeight()+descriptionText.getHeight());
         this.setMaxHeight(120);
 
-        Label test = new Label();
+        Label space = new Label();
         getChildren().add(titleText);
         getChildren().add(descriptionText);
-        getChildren().add(test);
+        getChildren().add(space);
 
         //TODO:将如下繁杂的更改简化为一个方法
         this.getStyleClass().add("warehouseShowing");
