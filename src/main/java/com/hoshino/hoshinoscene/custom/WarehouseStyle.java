@@ -21,14 +21,17 @@ import java.util.Set;
 public class WarehouseStyle extends VBox {
     String title;
     String description;
+    int index;
 
     public static final int WAREHOUSE_WIDTH = 200;
     //public static final int WAREHOUSE_HEIGHT = 120;
     //传入一个WordsWarehouse的对象
-    public WarehouseStyle(WordsWarehouse wh, Controller controller) {
+    public WarehouseStyle(WordsWarehouse wh, Controller controller, int index) {
         this.title = wh.getName();
 
         this.description = wh.getDescription();
+
+        this.index = index;
 
         Label titleText = new Label(title);
         titleText.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: #a2a2a2; -fx-pref-width: " + (WAREHOUSE_WIDTH - 50) + "; -fx-padding: 3;");
@@ -63,6 +66,10 @@ public class WarehouseStyle extends VBox {
             controller.descriptionLabel.setText(wh.getDescription());
             System.out.println("正在展示 "+wh.getName()+".json 文件的详情");
         });
+    }
+
+    public int getIndex() {
+        return this.index;
     }
 
 }

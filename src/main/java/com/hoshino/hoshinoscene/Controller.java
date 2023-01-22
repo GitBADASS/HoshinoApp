@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+//TODO:这里写的太乱了！整理好思路之后全部推翻重来！！！！！！！！！！
 public class Controller implements Initializable{
     public VBox root;
     public Button createWarehouse;
@@ -146,6 +147,7 @@ public class Controller implements Initializable{
         assert fileList != null;
         //率先清空，防止反复添加
         warehouseList.clear();
+        int index;//为更改ID准备index数据
         //遍历文件
         for (File file : fileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
@@ -161,6 +163,10 @@ public class Controller implements Initializable{
                 showingFile = file;
                 System.out.println("\n==========\n找到用户正在关注的文件：" + file.getName() + "\n==========\n");
                 setToShow(wordsWarehouse);
+                index = warehouseList.indexOf(wordsWarehouse);
+                this.content.getChildren().get(index).setId(wordsWarehouse.getName());
+            } else {
+                System.out.println("用户目前并未关注任何文件");
             }
         }
         //率先清空，防止反复添加
@@ -168,7 +174,7 @@ public class Controller implements Initializable{
         //遍历集合并展示
         for (WordsWarehouse wh : warehouseList) {
             System.out.println("展示"+wh.getName());
-            content.getChildren().add(new WarehouseStyle(wh, this));//展示
+            content.getChildren().add(new WarehouseStyle(wh, this, warehouseList.indexOf(wh)));//展示
         }
         //重新定位focus
         findFocus();
