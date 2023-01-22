@@ -37,6 +37,7 @@ public class Controller implements Initializable{
     public TextArea descriptionLabel;
     public ListView<WordsShowing> wordsShowing;
     public Button introduction;
+    public File showingFile;
     //文件加载
     ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();//用于存放扫描出的该类
     /*
@@ -151,15 +152,22 @@ public class Controller implements Initializable{
 
             WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);//解析为 WordsWarehouse 类
 
-            System.out.println("找到"+wordsWarehouse);
+            System.out.println("找到"+wordsWarehouse.getName());
 
             warehouseList.add(wordsWarehouse);//将解析出的 WordsWarehouse 类添加到集合中
+
+            //锁定正在被聚焦的文件并更新展示内容
+            if(file.getName().equals(nameLabel.getText()+".json")) {
+                showingFile = file;
+                System.out.println("\n==========\n找到用户正在关注的文件：" + file.getName() + "\n==========\n");
+                setToShow(wordsWarehouse);
+            }
         }
         //率先清空，防止反复添加
         content.getChildren().clear();
         //遍历集合并展示
         for (WordsWarehouse wh : warehouseList) {
-            System.out.println("展示"+wh);
+            System.out.println("展示"+wh.getName());
             content.getChildren().add(new WarehouseStyle(wh, this));//展示
         }
         //重新定位focus
