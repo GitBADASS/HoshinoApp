@@ -68,16 +68,9 @@ public class Controller implements Initializable{
         VBox.setVgrow(sc, Priority.ALWAYS);
         side.getChildren().addAll(search, sc);
         contentHBox.getChildren().add(2, side);//设置它的位置
-        /*root.setOnMouseEntered(e-> {
-            try {
-                load();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });*/
+
         //TODO:下面内容冗杂麻烦，创建方法去解决它
         //添加初始内容
-        ArrayList<WordsShowing> elementsList = new ArrayList<>();
         HashMap<String, String> h = new HashMap<>();
         h.put("nice", "好的");
         h.put("bad", "不好的");
@@ -103,17 +96,10 @@ public class Controller implements Initializable{
         });
 
         //展示介绍页
-        introduction.setOnAction(e->{
-            setToShow(wh);
-        });
+        introduction.setOnAction(e-> setToShow(wh));
 
         //伪 focus
-        nameLabel.textProperty().addListener((observableValue, s, t1) -> {
-            /*for(Node ws : content.getChildren()) {
-                ws.setStyle(null);
-            }*/
-            findFocus();
-        });
+        nameLabel.textProperty().addListener((observableValue, s, t1) -> findFocus());
 
         //创建新窗口
         createWarehouse.setOnMousePressed(e->{
@@ -209,7 +195,5 @@ public class Controller implements Initializable{
         ObservableList<WordsShowing> ob = FXCollections.observableList(wList);
         wordsShowing.setItems(ob);
     }
-/*    public static void main(String[] args) throws IOException {
-        load();
-    }*/
+
 }
