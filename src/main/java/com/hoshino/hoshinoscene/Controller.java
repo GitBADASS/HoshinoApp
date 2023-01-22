@@ -185,7 +185,7 @@ public class Controller implements Initializable{
         //遍历集合并展示
         for (WordsWarehouse wh : warehouseList) {
             System.out.println("展示"+wh);
-            content.getChildren().add(new WarehouseStyle(wh, nameLabel, descriptionLabel, wordsShowing));//展示
+            content.getChildren().add(new WarehouseStyle(wh, this));//展示
         }
         //重新定位focus
         findFocus();

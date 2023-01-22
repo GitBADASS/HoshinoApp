@@ -1,5 +1,6 @@
 package com.hoshino.hoshinoscene.custom;
 
+import com.hoshino.hoshinoscene.Controller;
 import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
@@ -24,7 +25,7 @@ public class WarehouseStyle extends VBox {
     public static final int WAREHOUSE_WIDTH = 200;
     //public static final int WAREHOUSE_HEIGHT = 120;
     //传入一个WordsWarehouse的对象
-    public WarehouseStyle(WordsWarehouse wh, Label nameL, TextArea descriptionL,  ListView<WordsShowing> wsList) {
+    public WarehouseStyle(WordsWarehouse wh, Controller controller) {
         this.title = wh.getName();
 
         this.description = wh.getDescription();
@@ -50,16 +51,16 @@ public class WarehouseStyle extends VBox {
         descriptionText.setContextMenu(new ForWarehouse(this));
         ArrayList<WordsShowing> wsAL = new ArrayList<>();
         this.setOnMouseClicked(e->{
-            wsList.getItems().clear();
+            controller.wordsShowing.getItems().clear();
             Set<String > keySet = wh.getContent().keySet();
             for(String key : keySet) {
                 WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
                 wsAL.add(ws);
             }
             ObservableList<WordsShowing> el = FXCollections.observableList(wsAL);
-            wsList.setItems(el);
-            nameL.setText(wh.getName());
-            descriptionL.setText(wh.getDescription());
+            controller.wordsShowing.setItems(el);
+            controller.nameLabel.setText(wh.getName());
+            controller.descriptionLabel.setText(wh.getDescription());
             System.out.println("正在展示 "+wh.getName()+".json 文件的详情");
         });
     }
