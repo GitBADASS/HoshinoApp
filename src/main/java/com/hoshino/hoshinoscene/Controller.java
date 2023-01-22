@@ -90,16 +90,8 @@ public class Controller implements Initializable{
         h.put("four", "四");
         h.put("five", "五");
         h.put("banana", "香蕉");
-        nameLabel.setText("星夜社单词库");
-        descriptionLabel.setText("欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n规范的单词库：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称不能超过25个字且不能重复、单词库描述不能超过200个字");
-        WordsWarehouse wh = new WordsWarehouse("测试", "好的测试", h);
-        Set<String > keySet = wh.getContent().keySet();
-        for(String key : keySet) {
-            WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
-            elementsList.add(ws);
-        }
-        ObservableList<WordsShowing> el = FXCollections.observableList(elementsList);
-        wordsShowing.setItems(el);
+        WordsWarehouse wh = new WordsWarehouse("星夜社单词库", "欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n规范的单词库：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称不能超过25个字且不能重复、单词库描述不能超过200个字", h);
+        setToShow(wh);
 
         //刷新
         flush.setOnAction(e-> {
@@ -112,13 +104,7 @@ public class Controller implements Initializable{
 
         //展示介绍页
         introduction.setOnAction(e->{
-            nameLabel.setText("星夜社单词库");
-            descriptionLabel.setText("欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n规范的单词库：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称不能超过25个字且不能重复、单词库描述不能超过200个字");
-            for(String key : keySet) {
-                WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
-                elementsList.add(ws);
-            }
-            wordsShowing.setItems(el);
+            setToShow(wh);
         });
 
         //伪 focus
