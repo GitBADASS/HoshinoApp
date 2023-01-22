@@ -176,8 +176,11 @@ public class Controller implements Initializable{
         //遍历文件
         for (File file : fileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
+
             WordsWarehouse wordsWarehouse = JSON.parseObject(content, WordsWarehouse.class);//解析为 WordsWarehouse 类
+
             System.out.println("找到"+wordsWarehouse);
+
             warehouseList.add(wordsWarehouse);//将解析出的 WordsWarehouse 类添加到集合中
         }
         //率先清空，防止反复添加
@@ -206,7 +209,20 @@ public class Controller implements Initializable{
             }
         }
     }
-
+    
+    //设置显示内容
+    public void setToShow(WordsWarehouse wh) {
+        ArrayList<WordsShowing> wList = new ArrayList<>();
+        nameLabel.setText(wh.getName());
+        descriptionLabel.setText(wh.getDescription());
+        Set<String > keySet = wh.getContent().keySet();
+        for(String key : keySet) {
+            WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
+            wList.add(ws);
+        }
+        ObservableList<WordsShowing> ob = FXCollections.observableList(wList);
+        wordsShowing.setItems(ob);
+    }
 /*    public static void main(String[] args) throws IOException {
         load();
     }*/
