@@ -7,8 +7,7 @@ import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -34,10 +33,14 @@ public class WarehouseStyle extends VBox {
         this.index = index;
 
         Label titleText = new Label(title);
+        Tooltip titleTT = new Tooltip(wh.getName());
+        titleText.setTooltip(titleTT);
         titleText.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: #a2a2a2; -fx-pref-width: " + (WAREHOUSE_WIDTH - 50) + "; -fx-padding: 3;");
         setId(title);//设置ID为title方便日后操作（比如删除、防重等
 
         Label descriptionText = new Label(description);
+        Tooltip descriptionTT = new Tooltip(wh.getDescription());
+        descriptionText.setTooltip(descriptionTT);
         descriptionText.setWrapText(true);
         descriptionText.setStyle("-fx-pref-width: " + WAREHOUSE_WIDTH + ";  -fx-padding: 3;"/* -fx-pref-height: 60; -fx-min-height: 35;*/);
         this.setHeight(titleText.getHeight()+descriptionText.getHeight());
