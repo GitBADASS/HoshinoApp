@@ -14,7 +14,7 @@ public class WordsWarehouse {
     private String description;
 
     @JSONField(name = "content")
-    private HashMap<String, String> content = new HashMap<>();
+    private HashMap<String, String> content;
 
     public WordsWarehouse(String name, String description, HashMap<String, String> content) {
         this.name = name;
