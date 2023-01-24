@@ -1,17 +1,11 @@
 package com.hoshino.hoshinoscene.custom;
 
 import com.hoshino.hoshinoscene.Controller;
-import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
-
-import java.util.ArrayList;
-import java.util.Set;
 
 //TODO:将文字 Label 换成 TextArea
 //更改方法原则：清除重建，而非表面上的更改
@@ -21,11 +15,15 @@ public class WarehouseStyle extends VBox {
     String title;
     String description;
     int index;
+    WordsWarehouse wordsWarehouse;
 
     public static final int WAREHOUSE_WIDTH = 200;
     //public static final int WAREHOUSE_HEIGHT = 120;
     //传入一个WordsWarehouse的对象
     public WarehouseStyle(WordsWarehouse wh, Controller controller, int index) {
+
+        this.wordsWarehouse = wh;
+
         this.title = wh.getName();
 
         this.description = wh.getDescription();
@@ -55,18 +53,8 @@ public class WarehouseStyle extends VBox {
         this.getStyleClass().add("warehouseShowing");
         titleText.setContextMenu(new ForWarehouse(this));
         descriptionText.setContextMenu(new ForWarehouse(this));
-        ArrayList<WordsShowing> wsAL = new ArrayList<>();
         this.setOnMouseClicked(e->{
-            controller.wordsShowing.getItems().clear();
-            Set<String > keySet = wh.getContent().keySet();
-            for(String key : keySet) {
-                WordsShowing ws = new WordsShowing(wh.getContent().get(key), key);
-                wsAL.add(ws);
-            }
-            ObservableList<WordsShowing> el = FXCollections.observableList(wsAL);
-            controller.wordsShowing.setItems(el);
-            controller.nameLabel.setText(wh.getName());
-            controller.descriptionLabel.setText(wh.getDescription());
+            controller.setToShow(wh);
             System.out.println("正在展示 "+wh.getName()+".json 文件的详情");
         });
     }
