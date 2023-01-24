@@ -55,6 +55,7 @@ public class WarehouseStyle extends VBox {
         descriptionText.setContextMenu(new ForWarehouse(this));
         this.setOnMouseClicked(e->{
             controller.setToShow(wh);
+            controller.showingWarehouse = wh;
             System.out.println("正在展示 "+wh.getName()+".json 文件的详情");
         });
     }

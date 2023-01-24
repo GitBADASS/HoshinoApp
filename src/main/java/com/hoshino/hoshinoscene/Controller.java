@@ -38,7 +38,7 @@ public class Controller implements Initializable{
     public TextArea descriptionLabel;
     public ListView<WordsShowing> wordsShowing;
     public Button introduction;
-    public File showingFile;
+    public WordsWarehouse showingWarehouse;
     //文件加载
     ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();//用于存放扫描出的该类
     /*
@@ -71,7 +71,6 @@ public class Controller implements Initializable{
         side.getChildren().addAll(search, sc);
         contentHBox.getChildren().add(2, side);//设置它的位置
 
-        //TODO:下面内容冗杂麻烦，创建方法去解决它
         //添加初始内容
         HashMap<String, String> h = new HashMap<>();
         h.put("nice", "好的");
@@ -85,7 +84,7 @@ public class Controller implements Initializable{
         h.put("four", "四");
         h.put("five", "五");
         h.put("banana", "香蕉");
-        WordsWarehouse wh = new WordsWarehouse("星夜社单词库", "欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n规范的单词库：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称不能超过25个字且不能重复、单词库描述不能超过200个字", h);
+        WordsWarehouse wh = new WordsWarehouse("星夜社介绍文本","星夜社单词库", "欢迎来到[Hoshino]星夜社单词管理库，它的作用是辅助使用者的英语学习。使用者可以[有针对性]地添加[个性化]单词库，有计划地对单词进行分类学习，之后会推出的功能：\n1.对单词库内单词进行抽查练习（比如释义单选、中英互译翻译考察等）；\n2.更加方便的单词库管理；\n3.加入翻译API以增强用户管理、练习单词等操作的体验\n4.以及更多个性化设置...\n规范的单词库：\n1.单词库名称、描述、单词中英文均不能为空\n2.单词库名称不能超过25个字且不能重复、单词库描述不能超过200个字", h);
         setToShow(wh);
 
         //刷新
@@ -117,6 +116,7 @@ public class Controller implements Initializable{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        //搜索功能
         HashMap<String, Node> wsList = new HashMap<>();
         search.textProperty().addListener((observableValue, s, t1) -> {
             for(Node ws : content.getChildren()) {
@@ -131,7 +131,7 @@ public class Controller implements Initializable{
         });
     }
 
-    public void addExitListener(Stage stage) {
+    public void addListenerToExit(Stage stage) {
         root.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode()== KeyCode.ESCAPE) {
                 stage.close();
@@ -147,8 +147,7 @@ public class Controller implements Initializable{
         assert fileList != null;
         //率先清空，防止反复添加
         warehouseList.clear();
-        int index;//为更改ID准备index数据
-        //遍历文件
+        //遍历文件并将发现的文件添加到集合中
         for (File file : fileList) {
             String content = new String(Files.readAllBytes(Paths.get(file.toURI())));//获取文件内容
 
@@ -157,18 +156,13 @@ public class Controller implements Initializable{
             System.out.println("找到"+wordsWarehouse.getName());
 
             warehouseList.add(wordsWarehouse);//将解析出的 WordsWarehouse 类添加到集合中
-
-            //锁定正在被聚焦的文件并更新展示内容
-            if(file.getName().equals(nameLabel.getText()+".json")) {
-                showingFile = file;
-                System.out.println("\n==========\n找到用户正在关注的文件：" + file.getName() + "\n==========\n");
-                setToShow(wordsWarehouse);
-                index = warehouseList.indexOf(wordsWarehouse);
-                this.content.getChildren().get(index).setId(wordsWarehouse.getName());
-            } else {
-                System.out.println("用户目前并未关注任何文件");
-            }
         }
+        /*//锁定正在被聚焦的文件并更新展示内容
+        if(showingWarehouse != null) {
+            update(showingWarehouse);
+        } else {
+            System.out.println("未关注文件");
+        }*/
         //率先清空，防止反复添加
         content.getChildren().clear();
         //遍历集合并展示
@@ -182,6 +176,10 @@ public class Controller implements Initializable{
         System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
     }
 
+    public void update(WordsWarehouse wordsWarehouse) {
+        setToShow(wordsWarehouse);
+    }
+
     //定位
     private void findFocus() {
         System.out.println("===库展示目标变更===");
@@ -192,6 +190,12 @@ public class Controller implements Initializable{
             if(ws.getId().equals(nameLabel.getText())) {
                 //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
                 ws.setStyle("-fx-background-color: #efefef");
+                //锁定正在被聚焦的文件并更新展示内容
+                if(showingWarehouse != null) {
+                    update(showingWarehouse);
+                } else {
+                    System.out.println("未关注文件");
+                }
             }
         }
     }

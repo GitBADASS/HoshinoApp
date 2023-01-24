@@ -10,13 +10,17 @@ public class WordsWarehouse {
     @JSONField(name = "name")
     private String name;
 
+    @JSONField(name = "id")
+    private String id;
+
     @JSONField(name = "description")
     private String description;
 
     @JSONField(name = "content")
     private HashMap<String, String> content;
 
-    public WordsWarehouse(String name, String description, HashMap<String, String> content) {
+    public WordsWarehouse(String id, String name, String description, HashMap<String, String> content) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.content = content;
@@ -35,6 +39,10 @@ public class WordsWarehouse {
         return content;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -45,6 +53,10 @@ public class WordsWarehouse {
 
     public void setContent(HashMap<String, String> content) {
         this.content = content;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
