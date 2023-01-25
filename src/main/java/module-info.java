@@ -9,5 +9,6 @@ module com.hoshino.hoshinoscene {
     exports com.hoshino.hoshinoscene;
     exports com.hoshino.hoshinoscene.tools;
     exports com.hoshino.hoshinoscene.controllers;
+    exports com.hoshino.hoshinoscene.custom;
     opens com.hoshino.hoshinoscene.controllers to com.alibaba.fastjson2, javafx.fxml;
 }

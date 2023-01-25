@@ -1,6 +1,7 @@
 package com.hoshino.hoshinoscene.tools;
 
 import com.alibaba.fastjson2.annotation.JSONField;
+import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 
 import java.util.HashMap;
 
@@ -18,6 +19,8 @@ public class WordsWarehouse {
 
     @JSONField(name = "content")
     private HashMap<String, String> content;
+
+    private WarehouseStyle targetWs;
 
     public WordsWarehouse(String id, String name, String description, HashMap<String, String> content) {
         this.id = id;
@@ -43,6 +46,10 @@ public class WordsWarehouse {
         return id;
     }
 
+    public WarehouseStyle getTargetWs() {
+        return targetWs;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -57,6 +64,10 @@ public class WordsWarehouse {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setTargetWs(WarehouseStyle targetWs) {
+        this.targetWs = targetWs;
     }
 
     @Override
