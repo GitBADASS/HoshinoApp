@@ -97,10 +97,13 @@ public class Controller implements Initializable{
         });
 
         //展示介绍页
-        introduction.setOnAction(e-> setToShow(wh));
+        introduction.setOnAction(e-> {
+            setToShow(wh);
+            showingWarehouse = null;
+        });
 
-        //伪 focus
-        nameLabel.textProperty().addListener((observableValue, s, t1) -> findFocus());
+        /*//伪 focus
+        nameLabel.textProperty().addListener((observableValue, s, t1) -> findFocus());*/
 
         //创建新窗口
         createWarehouse.setOnMousePressed(e->{
@@ -168,7 +171,9 @@ public class Controller implements Initializable{
         //遍历集合并展示
         for (WordsWarehouse wh : warehouseList) {
             System.out.println("展示"+wh.getName());
-            content.getChildren().add(new WarehouseStyle(wh, this, warehouseList.indexOf(wh)));//展示
+            WarehouseStyle ws = new WarehouseStyle(wh, this, warehouseList.indexOf(wh));
+            ws.setId(wh.getId());
+            content.getChildren().add(ws);//展示
         }
         //重新定位focus
         findFocus();
@@ -176,26 +181,24 @@ public class Controller implements Initializable{
         System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
     }
 
-    public void update(WordsWarehouse wordsWarehouse) {
-        setToShow(wordsWarehouse);
-    }
-
     //定位
-    private void findFocus() {
+    public void findFocus() {
         System.out.println("===库展示目标变更===");
         //遍历 content
         for(Node ws : content.getChildren()) {
             //首先清空样式
             ws.setStyle(null);
-            if(ws.getId().equals(nameLabel.getText())) {
-                //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
-                ws.setStyle("-fx-background-color: #efefef");
-                //锁定正在被聚焦的文件并更新展示内容
-                if(showingWarehouse != null) {
-                    update(showingWarehouse);
-                } else {
-                    System.out.println("未关注文件");
+            if(showingWarehouse != null) {
+                //TODO:↓需改进
+                if (showingWarehouse.getId().equals(ws.getId())) {
+                    //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
+                    ws.setStyle("-fx-background-color: #efefef");
+                    //锁定正在被聚焦的文件并更新展示内容
+                    setToShow(showingWarehouse);
+                    System.out.println(showingWarehouse);
                 }
+            } else {
+                System.out.println("未关注文件");
             }
         }
     }
@@ -214,4 +217,11 @@ public class Controller implements Initializable{
         wordsShowing.setItems(ob);
     }
 
+    public WordsWarehouse getShowingWarehouse() {
+        return showingWarehouse;
+    }
+
+    public void setShowingWarehouse(WordsWarehouse showingWarehouse) {
+        this.showingWarehouse = showingWarehouse;
+    }
 }
