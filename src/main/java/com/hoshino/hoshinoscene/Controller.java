@@ -192,8 +192,9 @@ public class Controller implements Initializable{
             //首先清空样式
             ws.setStyle(null);
             if(showingWarehouse != null) {
+                //此处有错误：showingWarehouse还是老的那个，想办法给他更新
+                //TODO:思路：创造一个地方长久让其地放Warehouse的ID（指定唯一标识符
                 if (showingWarehouse.getName().equals(ws.getId())) {
-                    //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
                     ws.setStyle("-fx-background-color: #efefef");
                     //锁定正在被聚焦的文件并更新展示内容
                     setToShow(showingWarehouse);
