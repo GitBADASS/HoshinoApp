@@ -20,15 +20,13 @@ public class WarehouseStyle extends VBox {
     public static final int WAREHOUSE_WIDTH = 200;
     //public static final int WAREHOUSE_HEIGHT = 120;
     //传入一个WordsWarehouse的对象
-    public WarehouseStyle(WordsWarehouse wh, Controller controller, int index) {
+    public WarehouseStyle(WordsWarehouse wh, Controller controller) {
 
         this.wordsWarehouse = wh;
 
         this.title = wh.getName();
 
         this.description = wh.getDescription();
-
-        this.index = index;
 
         Label titleText = new Label(title);
         Tooltip titleTT = new Tooltip(wh.getName());
@@ -57,6 +55,7 @@ public class WarehouseStyle extends VBox {
             controller.setToShow(wh);
             controller.setShowingWarehouse(wh);
             controller.findFocus();
+            System.out.println(controller.getShowingWarehouse());
             System.out.println("正在展示 "+controller.showingWarehouse+".json 文件的详情");
         });
     }
