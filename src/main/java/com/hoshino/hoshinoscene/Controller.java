@@ -5,6 +5,7 @@ import com.hoshino.hoshinoscene.custom.WarehouseStyle;
 import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
+import com.hoshino.hoshinoscene.tools.types.ConsoleTips;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -174,32 +175,32 @@ public class Controller implements Initializable{
             //System.out.println("展示" + name);
             wh.setId(name);
             WarehouseStyle ws = new WarehouseStyle(wh, this);
-            ws.setId(wh.getId());
+            ws.setId(wh.getName());
             content.getChildren().add(ws);//展示
         }
         //重新定位focus
         findFocus();
 
-        System.out.println("加载&展示完毕，共有" + warehouseList.size() + "个文件被加载并展示");
+        System.out.println(ConsoleTips.PROCESS + warehouseList.size() + "\033[m 个文件被加载并展示");
     }
 
     //定位
     public void findFocus() {
-        System.out.println("===库展示目标变更===");
+        System.out.println("[库展示目标变更]");
         //遍历 content
         for(Node ws : content.getChildren()) {
             //首先清空样式
             ws.setStyle(null);
             if(showingWarehouse != null) {
-                if (showingWarehouse.getId().equals(ws.getId())) {
+                if (showingWarehouse.getName().equals(ws.getId())) {
                     //ws的ID是唯一且等于nameLabel文字的，凭此设置样式
                     ws.setStyle("-fx-background-color: #efefef");
                     //锁定正在被聚焦的文件并更新展示内容
                     setToShow(showingWarehouse);
-                    System.out.println(showingWarehouse);
+                    System.out.println("\033[34m[关注中]\033[m " + showingWarehouse);
                 }
             } else {
-                System.out.println("未关注文件");
+                System.out.println("\033[37m[未关注文件]\033[m");
             }
         }
     }

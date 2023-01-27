@@ -55,8 +55,8 @@ public class WarehouseStyle extends VBox {
             controller.setToShow(wh);
             controller.setShowingWarehouse(wh);
             controller.findFocus();
-            System.out.println(controller.getShowingWarehouse());
-            System.out.println("正在展示 "+controller.showingWarehouse+".json 文件的详情");
+            //System.out.println(controller.getShowingWarehouse());
+            //System.out.println("正在展示 "+controller.showingWarehouse+".json 文件的详情");
         });
     }
 

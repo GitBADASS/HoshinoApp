@@ -48,7 +48,7 @@ public class HoshinoApp extends Application {
 
     @Override
     public void stop() {
-        System.out.println("Exits");
+        System.out.println("\033[31m[已退出]\033[m");
     }
 
     //启动
