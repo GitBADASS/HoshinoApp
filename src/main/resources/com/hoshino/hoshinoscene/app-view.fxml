@@ -5,11 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.TextFlow?>
 
 <VBox fx:id="root" minHeight="600.0" minWidth="1000.0" styleClass="main" stylesheets="@stylesheet/normal.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hoshino.hoshinoscene.Controller">
@@ -17,28 +19,35 @@
    </fx:define>
    <HBox fx:id="contentHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-      <VBox prefHeight="200.0" prefWidth="120.0" style="-fx-background-color: #efefef; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
-         <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="创建">
+      <VBox prefHeight="200.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-insets: 0 5 0 0;">
+         <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="115.0" styleClass="settingsBtn" text="创建">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0">
                   <Image url="@icons/add.png" />
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="flush" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="刷新">
+         <Button fx:id="flush" prefHeight="50.0" prefWidth="115.0" styleClass="settingsBtn" text="刷新">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0">
                   <Image url="@icons/flush.png" />
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="introduction" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="介绍">
+         <Button fx:id="introduction" prefHeight="50.0" prefWidth="115.0" styleClass="settingsBtn" text="介绍">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0">
                   <Image url="@icons/introduction.png" />
                </ImageView>
             </graphic>
          </Button>
+         <effect>
+            <DropShadow radius="9.25" width="18.0">
+               <color>
+                  <Color opacity="0.31355932354927063" />
+               </color>
+            </DropShadow>
+         </effect>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
          <Label fx:id="nameLabel" prefWidth="1.0E7" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />

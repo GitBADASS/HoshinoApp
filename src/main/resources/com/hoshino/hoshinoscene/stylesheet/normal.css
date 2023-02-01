@@ -46,7 +46,8 @@
 
 .settingsBtn {
     -fx-background-radius: 0;
-    -fx-background-color: #efefef;
+    /*-fx-background-color: #efefef;*/
+    -fx-background-color: white;
     -fx-padding: 5 15 5 15;
 }
 
