@@ -42,9 +42,9 @@
             </graphic>
          </Button>
          <effect>
-            <DropShadow height="20.38" radius="9.094999999999999" width="18.0">
+            <DropShadow height="19.19" radius="8.7975" width="18.0">
                <color>
-                  <Color opacity="0.37711864709854126" />
+                  <Color opacity="0.2838982939720154" />
                </color></DropShadow>
          </effect>
       </VBox>
