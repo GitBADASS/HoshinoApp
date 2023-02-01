@@ -91,8 +91,8 @@
 }
 
 .warehouseShowing {
-    -fx-background-color: #ffffff;-fx-pref-width: 200;/* -fx-pref-height: 120;*/ -fx-background-radius: 3px; -fx-padding: 5px;
-    -fx-border-color: #e0e0e0;-fx-border-width: 0 1 0 0;
+    -fx-background-color: #f3f3f3;-fx-pref-width: 200;/* -fx-pref-height: 120;*/ -fx-background-radius: 3px; -fx-padding: 5px;
+    /*-fx-border-color: #e0e0e0;-fx-border-width: 0 1 0 0;*/
 }
 
 .warehouseShowing:hover {
@@ -138,13 +138,20 @@
 
 .search {
     -fx-background-radius: 0;
-    -fx-background-color: white, white, white, white;
-    -fx-border-width: 0 1 1 0;
-    -fx-border-color: #e0e0e0;
+    /*-fx-background-color: rgba(243, 243, 243, 0.95), white, white, rgba(243, 243, 243, 0.95);*/
+    -fx-background-color: white;
+    /*-fx-border-width: 0 1 1 1;
+    -fx-border-color: #e0e0e0;*/
+    -fx-background-insets: 0 0 1 0;
+    -fx-effect: dropshadow(three-pass-box, gray, 10.0, 0, 0, 0);
 }
 
 .search:focused {
-    -fx-background-color: transparent, transparent, transparent, transparent;
+    fx-background-color: #f3f3f3;
+}
+
+#buttonbar {
+    -fx-background-color: white;
 }
 /*自定义滚动条*/
 

@@ -19,22 +19,22 @@
    </fx:define>
    <HBox fx:id="contentHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <FlowPane fx:id="content" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-      <VBox prefHeight="200.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-insets: 0 5 0 0;">
-         <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="115.0" styleClass="settingsBtn" text="创建">
+      <VBox fx:id="buttonbar" prefHeight="200.0" prefWidth="120.0">
+         <Button fx:id="createWarehouse" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="创建">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0">
                   <Image url="@icons/add.png" />
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="flush" prefHeight="50.0" prefWidth="115.0" styleClass="settingsBtn" text="刷新">
+         <Button fx:id="flush" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="刷新">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0">
                   <Image url="@icons/flush.png" />
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="introduction" prefHeight="50.0" prefWidth="115.0" styleClass="settingsBtn" text="介绍">
+         <Button fx:id="introduction" prefHeight="50.0" prefWidth="120.0" styleClass="settingsBtn" text="介绍">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0">
                   <Image url="@icons/introduction.png" />
@@ -42,11 +42,10 @@
             </graphic>
          </Button>
          <effect>
-            <DropShadow radius="9.25" width="18.0">
+            <DropShadow height="20.38" radius="9.094999999999999" width="18.0">
                <color>
-                  <Color opacity="0.31355932354927063" />
-               </color>
-            </DropShadow>
+                  <Color opacity="0.37711864709854126" />
+               </color></DropShadow>
          </effect>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">

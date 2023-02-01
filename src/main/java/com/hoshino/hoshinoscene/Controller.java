@@ -40,6 +40,7 @@ public class Controller implements Initializable{
     public ListView<WordsShowing> wordsShowing;
     public Button introduction;
     public WordsWarehouse showingWarehouse;
+    public VBox buttonbar;
     //文件加载
     ArrayList<WordsWarehouse> warehouseList = new ArrayList<>();//用于存放扫描出的该类
     /*
@@ -133,6 +134,9 @@ public class Controller implements Initializable{
                 }
             }
         });
+
+        contentHBox.getChildren().remove(buttonbar);
+        contentHBox.getChildren().add(buttonbar);
     }
 
     public void addListenerToExit(Stage stage) {
