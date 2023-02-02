@@ -51,7 +51,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
          <Label fx:id="nameLabel" prefWidth="1.0E7" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
          <TextArea fx:id="descriptionLabel" editable="false" style="-fx-padding: 5; -fx-font-size: 15; -fx-background-color: transparent, white, transparent, white; -fx-border-width: 0" wrapText="true" VBox.vgrow="ALWAYS" />
-         <VBox style="-fx-padding: 10;" VBox.vgrow="ALWAYS">
+         <VBox VBox.vgrow="ALWAYS">
             <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
                <children>
                   <TextFlow prefHeight="15.0" prefWidth="370.0" style="-fx-padding: 5; -fx-background-color: white;">
@@ -64,7 +64,7 @@
                   </ListView>
                </children>
                <effect>
-                  <DropShadow height="12.0" radius="5.5" width="12.0">
+                  <DropShadow height="6.0" radius="2.25" width="5.0">
                      <color>
                         <Color opacity="0.25" />
                      </color>

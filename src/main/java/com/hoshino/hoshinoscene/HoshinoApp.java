@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 //主类
@@ -48,7 +50,9 @@ public class HoshinoApp extends Application {
 
     @Override
     public void stop() {
-        System.out.println("\033[31m[已退出]\033[m");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssz");
+        Date date = new Date(System.currentTimeMillis());
+        System.out.println("\033[31m[已退出]\033[m " + formatter.format(date));
     }
 
     //启动
