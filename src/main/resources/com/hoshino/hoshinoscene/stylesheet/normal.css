@@ -51,6 +51,11 @@
     -fx-padding: 5 15 5 15;
 }
 
+/*button 的 focus 事件*/
+/*.settingsBtn:focused {
+    -fx-background-color: red;
+}*/
+
 .littleBtn {
     -fx-background-radius: 0;
     -fx-background-color: #e9e9e9;

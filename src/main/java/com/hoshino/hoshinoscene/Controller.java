@@ -23,10 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 //TODO:这里写的太乱了！整理好思路之后全部推翻重来！！！！！！！！！！
 public class Controller implements Initializable{
@@ -93,7 +90,7 @@ public class Controller implements Initializable{
         flush.setOnAction(e-> {
             try {
                 load();
-            } catch (IOException ex) {
+            } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
         });
@@ -118,7 +115,7 @@ public class Controller implements Initializable{
         });
         try {
             this.load();//加载
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
         //搜索功能
@@ -148,7 +145,7 @@ public class Controller implements Initializable{
     }
 
     //加载文件并展示
-    public void load() throws IOException {
+    public void load() throws IOException, InterruptedException {
         //遍历文件夹读取文件
         File jsons = new File("json\\warehouses");
         File[] fileList = jsons.listFiles();//获取库文件夹下所有文件

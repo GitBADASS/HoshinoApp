@@ -3,10 +3,18 @@ package com.hoshino.hoshinoscene.custom;
 import com.hoshino.hoshinoscene.Controller;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
-import javafx.scene.control.Button;
+import javafx.animation.FadeTransition;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.util.Duration;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 //TODO:将文字 Label 换成 TextArea
 //TODO:此类改为 继承自Button
@@ -60,6 +68,25 @@ public class WarehouseStyle extends VBox {
             //System.out.println(controller.getShowingWarehouse());
             //System.out.println("正在展示 "+controller.showingWarehouse+".json 文件的详情");
         });
+
+        //动画
+        //淡入动画
+        FadeTransition animationIn = new FadeTransition(Duration.millis(1000), this);
+        animationIn.setFromValue(0);//从不透明
+        animationIn.setToValue(1);//到透明
+        animationIn.setAutoReverse(true);
+        animationIn.play();
+        /*//移入动画
+        Path path = new Path();
+        path.getElements().add(new MoveTo(200, 0));
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setDuration(Duration.millis(4000));
+        pathTransition.setPath(path);
+        pathTransition.setNode(this);
+        pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+        pathTransition.setCycleCount(Timeline.INDEFINITE);
+        pathTransition.setAutoReverse(true);
+        pathTransition.play();*/
     }
 
     public int getIndex() {

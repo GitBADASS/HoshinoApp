@@ -33,7 +33,7 @@ public class ForWarehouse extends ContextMenu {
                         Controller c = HoshinoApp.fxmlLoader.getController();
                         try {
                             c.load();
-                        } catch (IOException ex) {
+                        } catch (IOException | InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
                     } else {

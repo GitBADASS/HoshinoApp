@@ -149,6 +149,8 @@ public class GenController implements Initializable {
                         c.load();
                     } catch (IOException ex) {
                         System.out.println("文件加载失败");
+                    } catch (InterruptedException ex) {
+                        throw new RuntimeException(ex);
                     }
                 } else {
                     if(warnText.getOpacity()==0) {
