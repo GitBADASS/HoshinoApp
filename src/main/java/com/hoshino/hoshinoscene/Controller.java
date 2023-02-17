@@ -6,6 +6,7 @@ import com.hoshino.hoshinoscene.tools.GenWarehouse;
 import com.hoshino.hoshinoscene.tools.WordsShowing;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.types.ConsoleTips;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -170,7 +171,7 @@ public class Controller implements Initializable{
         }*/
         //率先清空，防止反复添加
         content.getChildren().clear();
-        //遍历集合并展示
+        /*//遍历集合并展示
         for (WordsWarehouse wh : warehouseList) {
             String name = wh.getName();
             //System.out.println("展示" + name);
@@ -178,7 +179,34 @@ public class Controller implements Initializable{
             WarehouseStyle ws = new WarehouseStyle(wh, this);
             ws.setId(wh.getName());
             content.getChildren().add(ws);//展示
-        }
+        }*/
+
+        Timer timer = new Timer();
+        final int[] i = {0};
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                if(i[0] < warehouseList.size()) {
+                    WordsWarehouse wh = warehouseList.get(i[0]);
+                    String name = wh.getName();
+                    //System.out.println("展示" + name);
+                    wh.setId(name);
+                    WarehouseStyle ws = new WarehouseStyle(wh, Controller.this);
+                    ws.setId(wh.getName());
+                    Platform.runLater(() -> {
+                        content.getChildren().add(ws);//展示
+                    });
+                    i[0] += 1;
+                } else if(i[0] == warehouseList.size()) {
+                    System.out.println(ConsoleTips.PROCESS + "展示任务结束");
+                    cancel();
+                    System.out.println(ConsoleTips.PROCESS + "展示计时停止");
+                    System.gc();
+                    System.out.println(ConsoleTips.PROCESS + "线程已回收");
+                }
+            }
+        };
+        timer.schedule(timerTask, 0, 250);
         //重新定位focus
         findFocus();
 

@@ -71,7 +71,7 @@ public class WarehouseStyle extends VBox {
 
         //动画
         //淡入动画
-        FadeTransition animationIn = new FadeTransition(Duration.millis(1000), this);
+        FadeTransition animationIn = new FadeTransition(Duration.millis(600), this);
         animationIn.setFromValue(0);//从不透明
         animationIn.setToValue(1);//到透明
         animationIn.setAutoReverse(true);
