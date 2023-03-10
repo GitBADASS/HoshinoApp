@@ -4,20 +4,14 @@ import com.hoshino.hoshinoscene.Controller;
 import com.hoshino.hoshinoscene.tools.WordsWarehouse;
 import com.hoshino.hoshinoscene.tools.contextMenu.ForWarehouse;
 import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
-import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 //TODO:将文字 Label 换成 TextArea
-//TODO:此类改为 继承自Button
+//TODO:运用 `Button` 类的 `setGraphic()` 方法，将此类的对象放入一个 `Button` 类的对象中
 //更改方法原则：清除重建，而非表面上的更改
 //目前该类仍然是比较呆板，日后会弃用也说不定
 //这种展示类应该侧重与存储信息的JSON文件的联动，并且应该有各种各样的鼠标事件（比如右键菜单，左键打开学习库等等等
