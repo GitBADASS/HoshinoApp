@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class TypingEffect extends Application {
+public class TypingEffect extends Application implements TextEffect {
 
     private int counter = 0;
     private String text = "Hello, World!";
@@ -38,5 +38,10 @@ public class TypingEffect extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void addEffect(String text, Label targetLabel) {
+
     }
 }
